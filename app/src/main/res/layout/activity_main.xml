@@ -72,6 +72,7 @@
         android:layout_marginBottom="60dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="goToVoterLoginActivity"
         android:text="Voter"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
