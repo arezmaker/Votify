@@ -18,4 +18,19 @@ public class MainActivity extends AppCompatActivity {
         Intent i=new Intent(this,VoterLoginActivity.class);
         startActivity(i);
     }
+
+    public void goToECPLoginActivity(View view){
+        Intent i=new Intent(this,ECPLoginActivity.class);
+        startActivity(i);
+    }
+
+    public void goToCandidateLoginActivity(View view){
+        Intent i=new Intent(this,CandidateLoginActivity.class);
+        startActivity(i);
+    }
+
+    public void goToAdminLoginActivity(View view){
+        Intent i=new Intent(this,AdminLoginActivity.class);
+        startActivity(i);
+    }
 }

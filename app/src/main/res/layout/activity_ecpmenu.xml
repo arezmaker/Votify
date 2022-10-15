@@ -4,17 +4,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".AdminMenuActivity">
+    tools:context=".ECPMenuActivity">
 
     <Button
-        android:id="@+id/button13"
+        android:id="@+id/button15"
+        android:layout_width="130dp"
+        android:layout_height="66dp"
+        android:layout_marginTop="508dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        android:text="Create Election"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button11"
         android:layout_width="139dp"
         android:layout_height="71dp"
         android:layout_marginTop="368dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:text="Review Feedback"
+        android:text="Election Parties"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -24,13 +39,13 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button14"
+        android:id="@+id/button12"
         android:layout_width="130dp"
         android:layout_height="66dp"
         android:layout_marginTop="368dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:text="Generate Report"
+        android:text="Voter List"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -40,7 +55,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView7"
+        android:id="@+id/imageView8"
         android:layout_width="358dp"
         android:layout_height="274dp"
         android:layout_marginTop="16dp"
@@ -49,5 +64,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
-
 </androidx.constraintlayout.widget.ConstraintLayout>
