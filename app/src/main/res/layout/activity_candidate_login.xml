@@ -8,9 +8,9 @@
     tools:context=".CandidateLoginActivity">
 
     <EditText
-        android:id="@+id/editTextNumberSigned"
-        android:layout_width="209dp"
-        android:layout_height="74dp"
+        android:id="@+id/c_editTextNumberSigned"
+        android:layout_width="211dp"
+        android:layout_height="67dp"
         android:ems="10"
         android:hint="CNIC"
         android:inputType="numberSigned"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.596" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/c_editTextDate"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:ems="10"
@@ -37,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberSigned"
+        app:layout_constraintTop_toBottomOf="@+id/c_editTextNumberSigned"
         app:layout_constraintVertical_bias="0.094" />
 
     <ImageView
@@ -60,14 +60,14 @@
         android:textColor="#163318"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/c_editTextNumberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.372" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/c_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
@@ -81,10 +81,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
+        app:layout_constraintTop_toBottomOf="@+id/c_editTextDate" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/c_signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
@@ -97,6 +97,6 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/c_login_button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

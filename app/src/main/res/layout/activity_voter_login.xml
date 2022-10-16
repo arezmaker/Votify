@@ -8,7 +8,7 @@
     tools:context=".VoterLoginActivity">
 
     <EditText
-        android:id="@+id/editTextNumberSigned"
+        android:id="@+id/v_editTextNumberSigned"
         android:layout_width="209dp"
         android:layout_height="74dp"
         android:ems="10"
@@ -24,7 +24,7 @@
         app:layout_constraintVertical_bias="0.596" />
 
     <EditText
-        android:id="@+id/editTextDate"
+        android:id="@+id/v_editTextDate"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:ems="10"
@@ -37,25 +37,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberSigned"
+        app:layout_constraintTop_toBottomOf="@+id/v_editTextNumberSigned"
         app:layout_constraintVertical_bias="0.094" />
-
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:background="#1E4720"
-        android:backgroundTint="#265728"
-        android:onClick="goToMenuActivity"
-        android:text="Log In"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -77,17 +60,33 @@
         android:textColor="#163318"
         android:textSize="48sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberSigned"
+        app:layout_constraintBottom_toTopOf="@+id/v_editTextNumberSigned"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.372" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/v_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="24dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        android:onClick="goToMenuActivity"
+        android:text="Log In"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/v_editTextDate" />
+
+    <Button
+        android:id="@+id/v_signup_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:onClick="goToVoterSignUpActivity"
@@ -95,8 +94,11 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/v_login_button"
+        app:layout_constraintVertical_bias="0.271" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     tools:context=".VoterSignUpActivity">
 
     <Button
-        android:id="@+id/button17"
+        android:id="@+id/vs_button17"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:background="#1E4720"
@@ -20,10 +20,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate3" />
+        app:layout_constraintTop_toBottomOf="@+id/vs_editTextDate3" />
 
     <EditText
-        android:id="@+id/editTextDate3"
+        android:id="@+id/vs_editTextDate3"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:layout_marginBottom="16dp"
@@ -37,11 +37,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate2"
+        app:layout_constraintTop_toBottomOf="@+id/vs_editTextDate2"
         app:layout_constraintVertical_bias="0.134" />
 
     <EditText
-        android:id="@+id/editTextDate2"
+        android:id="@+id/vs_editTextDate2"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:layout_marginBottom="176dp"
@@ -54,12 +54,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberSigned"
-        app:layout_constraintVertical_bias="0.094" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned5"
+        android:id="@+id/vs_editTextNumberSigned5"
         android:layout_width="209dp"
         android:layout_height="74dp"
         android:ems="10"
@@ -86,14 +84,14 @@
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/vs_editTextTextPersonName3"
         android:layout_width="209dp"
         android:layout_height="74dp"
         android:layout_marginBottom="12dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberSigned5"
+        app:layout_constraintBottom_toTopOf="@+id/vs_editTextNumberSigned5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

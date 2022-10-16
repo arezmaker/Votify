@@ -18,7 +18,7 @@
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/admin_button"
         android:layout_width="130dp"
         android:layout_height="66dp"
         android:layout_marginTop="368dp"
@@ -35,7 +35,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/ecp_button"
         android:layout_width="139dp"
         android:layout_height="71dp"
         android:layout_marginTop="368dp"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/candidate_button"
         android:layout_width="128dp"
         android:layout_height="70dp"
         android:layout_marginBottom="60dp"
@@ -69,7 +69,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/voter_button"
         android:layout_width="142dp"
         android:layout_height="74dp"
         android:layout_marginBottom="60dp"

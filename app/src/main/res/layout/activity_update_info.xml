@@ -20,7 +20,7 @@
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/upif_confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
@@ -33,11 +33,11 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress2"
+        app:layout_constraintTop_toBottomOf="@+id/upif_editTextTextPostalAddress2"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/name1"
+        android:id="@+id/upif_name"
         android:layout_width="256dp"
         android:layout_height="54dp"
         android:layout_marginTop="324dp"
@@ -51,7 +51,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress"
+        android:id="@+id/upif_editTextTextPostalAddress"
         android:layout_width="256dp"
         android:layout_height="54dp"
         android:layout_marginEnd="8dp"
@@ -59,13 +59,13 @@
         android:ems="10"
         android:hint="Current Address"
         android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPostalAddress2"
+        app:layout_constraintBottom_toTopOf="@+id/upif_editTextTextPostalAddress2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.525"
         app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPostalAddress2"
+        android:id="@+id/upif_editTextTextPostalAddress2"
         android:layout_width="256dp"
         android:layout_height="54dp"
         android:layout_marginEnd="8dp"
@@ -79,7 +79,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/upif_cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="76dp"
@@ -91,19 +91,19 @@
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPostalAddress2"
+        app:layout_constraintTop_toBottomOf="@+id/upif_editTextTextPostalAddress2"
         app:layout_constraintVertical_bias="0.0" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned2"
+        android:id="@+id/upif_editTextNumberSigned2"
         android:layout_width="256dp"
         android:layout_height="54dp"
         android:ems="10"
         android:hint="CNIC"
         android:inputType="numberSigned"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPostalAddress"
+        app:layout_constraintBottom_toTopOf="@+id/upif_editTextTextPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/name1" />
+        app:layout_constraintTop_toBottomOf="@+id/upif_name" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

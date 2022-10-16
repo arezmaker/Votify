@@ -18,18 +18,19 @@
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName4"
+        android:id="@+id/cs_editTextTextPersonName4"
         android:layout_width="209dp"
         android:layout_height="74dp"
         android:ems="10"
         android:hint="Name"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNumberSigned3"
-        app:layout_constraintTop_toBottomOf="@+id/imageView9"
-        tools:layout_editor_absoluteX="101dp" />
+        app:layout_constraintBottom_toTopOf="@+id/cs_editTextNumberSigned3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView9" />
 
     <EditText
-        android:id="@+id/editTextNumberSigned3"
+        android:id="@+id/cs_editTextNumberSigned3"
         android:layout_width="209dp"
         android:layout_height="74dp"
         android:ems="10"
@@ -45,7 +46,7 @@
         app:layout_constraintVertical_bias="0.608" />
 
     <EditText
-        android:id="@+id/editTextDate4"
+        android:id="@+id/cs_editTextDate4"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:layout_marginBottom="176dp"
@@ -59,11 +60,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNumberSigned3"
+        app:layout_constraintTop_toBottomOf="@+id/cs_editTextNumberSigned3"
         app:layout_constraintVertical_bias="1.0" />
 
     <EditText
-        android:id="@+id/editTextDate5"
+        android:id="@+id/cs_editTextDate5"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:layout_marginBottom="92dp"
@@ -77,11 +78,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate4"
+        app:layout_constraintTop_toBottomOf="@+id/cs_editTextDate4"
         app:layout_constraintVertical_bias="0.764" />
 
     <Button
-        android:id="@+id/button16"
+        android:id="@+id/cs_button16"
         android:layout_width="wrap_content"
         android:layout_height="48dp"
         android:background="#1E4720"
@@ -94,5 +95,5 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDate5" />
+        app:layout_constraintTop_toBottomOf="@+id/cs_editTextDate5" />
 </androidx.constraintlayout.widget.ConstraintLayout>
