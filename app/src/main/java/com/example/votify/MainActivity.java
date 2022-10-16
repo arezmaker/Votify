@@ -15,22 +15,22 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void goToVoterLoginActivity(View view){
-        Intent i=new Intent(this,VoterLoginActivity.class);
+        Intent i=new Intent(MainActivity.this,VoterLoginActivity.class);
         startActivity(i);
     }
 
     public void goToECPLoginActivity(View view){
-        Intent i=new Intent(this,ECPLoginActivity.class);
+        Intent i=new Intent(MainActivity.this,ECPLoginActivity.class);
         startActivity(i);
     }
 
     public void goToCandidateLoginActivity(View view){
-        Intent i=new Intent(this,CandidateLoginActivity.class);
+        Intent i=new Intent(MainActivity.this,CandidateLoginActivity.class);
         startActivity(i);
     }
 
     public void goToAdminLoginActivity(View view){
-        Intent i=new Intent(this,AdminLoginActivity.class);
+        Intent i=new Intent(MainActivity.this,AdminLoginActivity.class);
         startActivity(i);
     }
 }

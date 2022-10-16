@@ -15,12 +15,12 @@ public class VoterLoginActivity extends AppCompatActivity {
     }
 
     public void goToMenuActivity(View view){
-        Intent i=new Intent(this,MenuActivity.class);
+        Intent i=new Intent(VoterLoginActivity.this,MenuActivity.class);
         startActivity(i);
     }
 
     public void goToVoterSignUpActivity(View view){
-        Intent i=new Intent(this,VoterSignUpActivity.class);
+        Intent i=new Intent(VoterLoginActivity.this,VoterSignUpActivity.class);
         startActivity(i);
     }
 }

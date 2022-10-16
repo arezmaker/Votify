@@ -15,7 +15,7 @@ public class CandidateSignUpActivity extends AppCompatActivity {
     }
 
     public void goToCandidateLoginActivity(View view){
-        Intent i=new Intent(this,CandidateLoginActivity.class);
+        Intent i=new Intent(CandidateSignUpActivity.this,CandidateLoginActivity.class);
         startActivity(i);
     }
 }

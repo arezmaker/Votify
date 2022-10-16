@@ -15,7 +15,7 @@ public class VoterSignUpActivity extends AppCompatActivity {
     }
 
     public void goToVoterLoginActivity(View view){
-        Intent i=new Intent(this,VoterLoginActivity.class);
+        Intent i=new Intent(VoterSignUpActivity.this,VoterLoginActivity.class);
         startActivity(i);
     }
 }

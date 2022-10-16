@@ -15,12 +15,12 @@ public class CandidateLoginActivity extends AppCompatActivity {
     }
 
     public void goToMenuActivity(View view){
-        Intent i=new Intent(this,MenuActivity.class);
+        Intent i=new Intent(CandidateLoginActivity.this,MenuActivity.class);
         startActivity(i);
     }
 
     public void goToCandidateSignUpActivity(View view){
-        Intent i=new Intent(this,CandidateSignUpActivity.class);
+        Intent i=new Intent(CandidateLoginActivity.this,CandidateSignUpActivity.class);
         startActivity(i);
     }
 }
