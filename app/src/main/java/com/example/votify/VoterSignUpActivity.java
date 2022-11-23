@@ -90,7 +90,7 @@ public class VoterSignUpActivity extends AppCompatActivity {
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Voter(name,cnic,birth_date,expire_date) VALUES ('" + voter.getName()  + "','"+ String.valueOf(voter.getCnic())+ "','" + voter.getBirth_date()  + "','" + voter.getExpire_date()  + "') " ;
+                String query = "INSERT INTO Voter(name,cnic,votingArea,expirydate,birthdate,typeOfVote) VALUES ('" + voter.getName()  + "','"+ String.valueOf(voter.getCnic())+ "','"+""+"','" + voter.getExpire_date()  + "','" + voter.getBirth_date()  + "','"+""+"') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();

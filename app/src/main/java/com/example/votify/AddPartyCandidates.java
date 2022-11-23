@@ -6,16 +6,21 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ECPMenuActivity extends AppCompatActivity {
+public class AddPartyCandidates extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ecpmenu);
+        setContentView(R.layout.activity_add_party_candidates);
+    }
+
+    public void goToAddCandidateInfo(View view){
+        Intent i=new Intent(AddPartyCandidates.this,AddCandidateInfo.class);
+        startActivity(i);
     }
 
     public void goToECPPartyList(View view){
-        Intent i=new Intent(ECPMenuActivity.this,ECPPartyList.class);
+        Intent i=new Intent(AddPartyCandidates.this,ECPPartyList.class);
         startActivity(i);
     }
 }

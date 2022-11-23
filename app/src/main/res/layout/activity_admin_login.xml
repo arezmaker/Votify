@@ -15,6 +15,7 @@
         android:layout_marginBottom="88dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="goToAdminMenu"
         android:text="Log In"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"

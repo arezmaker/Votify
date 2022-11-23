@@ -6,17 +6,16 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class AdminLoginActivity extends AppCompatActivity {
+public class AddCandidateInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_admin_login);
+        setContentView(R.layout.activity_add_candidate_info);
     }
 
-    public void goToAdminMenu(View view)
-    {
-        Intent i=new Intent(AdminLoginActivity.this,AdminMenuActivity.class);
+    public void goToAddPartyCandidates(View view){
+        Intent i=new Intent(AddCandidateInfo.this,AddPartyCandidates.class);
         startActivity(i);
     }
 }
