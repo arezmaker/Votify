@@ -34,4 +34,8 @@ public class MainActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void popup(View view) {
+        Intent i=new Intent(MainActivity.this,MenuActivity.class);
+        startActivity(i);
+    }
 }

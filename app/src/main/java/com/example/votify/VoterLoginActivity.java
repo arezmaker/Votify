@@ -65,15 +65,18 @@ public class VoterLoginActivity extends AppCompatActivity {
         LocalDate edate=LocalDate.parse(String.valueOf(v_date.getText()),formatter);
 
         //Toast.makeText(VoterLoginActivity.this,String.valueOf(edate),Toast.LENGTH_SHORT).show();
+        Voter voter=new Voter();
 
 
         if (connection!=null){
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("Select * from Voter where CNIC="+String.valueOf(cnic)+" and expiryDate='"+String.valueOf(edate)+"'");
+                String query = "Select * from Voter where CNIC='"+String.valueOf(cnic)+"' and expiryDate='"+String.valueOf(edate)+"'";
+                ResultSet resultSet = statement.executeQuery(query);
                 if (resultSet.next()){
-                    Intent i=new Intent(VoterLoginActivity.this,MenuActivity.class);
+                    Intent i=new Intent(this,MenuActivity.class);
+                    i.putExtra("CNIC",String.valueOf(cnic));
                     startActivity(i);
                 }
                 else{

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".TypeofVoteActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="330dp"
+        android:layout_height="281dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="241dp"
+        android:layout_height="117dp"
+        android:text="CAST VOTE"
+        android:textAlignment="center"
+        android:textColor="#163318"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/spinner"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.193" />
+
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="185dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#1E4720"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:dropDownSelector="#1E4720"
+        android:foregroundTint="#1E4720"
+        android:popupBackground="#1E4720"
+        android:textDirection="inherit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintVertical_bias="0.489"
+        tools:ignore="MissingConstraints" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
