@@ -19,7 +19,7 @@
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
 
     <EditText
-        android:id="@+id/rf_editTextNumberSigned"
+        android:id="@+id/ed_cnic"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:ems="10"
@@ -36,7 +36,7 @@
         app:layout_constraintVertical_bias="0.458" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/ed_stat"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:ems="10"
@@ -67,7 +67,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/ed_stat"
         app:layout_constraintVertical_bias="0.189"
         tools:ignore="OnClick" />
 

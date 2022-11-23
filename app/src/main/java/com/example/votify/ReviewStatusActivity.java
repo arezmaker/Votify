@@ -1,6 +1,7 @@
 package com.example.votify;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -32,13 +33,11 @@ public class ReviewStatusActivity extends AppCompatActivity {
     EditText c;
     EditText s;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_review_status);
-
-        c=findViewById(R.id.rf_editTextNumberSigned);
-        s=findViewById(R.id.editTextTextPersonName);
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
@@ -53,13 +52,19 @@ public class ReviewStatusActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        c=findViewById(R.id.ed_cnic);
+        s=findViewById(R.id.ed_stat);
+
         if (connection!=null){
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("Select CNIC,Status from voter where CNIC='12345'");
-                c.setText(resultSet.getString("CNIC"));
-                s.setText(resultSet.getString("Status"));
+                ResultSet resultSet = statement.executeQuery("Select CNIC, Status from Voter where CNIC='12345'");
+                while (resultSet.next())
+                {
+                    c.setText(resultSet.getString("CNIC"));
+                    s.setText(resultSet.getString("Status"));
+                }
 
             } catch (SQLException e) {
                 e.printStackTrace();
@@ -67,6 +72,7 @@ public class ReviewStatusActivity extends AppCompatActivity {
             }
         }
     }
+
     public void changeStatus(View view)
     {
        String status_var=String.valueOf(s.getText());
@@ -79,15 +85,12 @@ public class ReviewStatusActivity extends AppCompatActivity {
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("update voter set [Status]='Inactive' where CNIC='"+cnic+"' ");
-
-
+                ResultSet resultSet = statement.executeQuery("update voter set [Status]='Active' where CNIC='"+cnic+"' ");
 
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
-
 
     }
 }
