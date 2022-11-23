@@ -65,7 +65,6 @@ public class VoterLoginActivity extends AppCompatActivity {
         LocalDate edate=LocalDate.parse(String.valueOf(v_date.getText()),formatter);
 
         //Toast.makeText(VoterLoginActivity.this,String.valueOf(edate),Toast.LENGTH_SHORT).show();
-        Voter voter=new Voter();
 
 
         if (connection!=null){
