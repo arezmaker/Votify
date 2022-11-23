@@ -14,6 +14,8 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.votify.model.Voter;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -27,9 +29,9 @@ public class VoterLoginActivity extends AppCompatActivity {
     private static String ip = "10.0.2.2";
     private static String port = "1433";
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "Votify";
+    private static String database = "test";
     private static String username = "test";
-    private static String password = "test1234";
+    private static String password = "123";
     private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
 
     private Connection connection = null;
@@ -65,15 +67,18 @@ public class VoterLoginActivity extends AppCompatActivity {
         LocalDate edate=LocalDate.parse(String.valueOf(v_date.getText()),formatter);
 
         //Toast.makeText(VoterLoginActivity.this,String.valueOf(edate),Toast.LENGTH_SHORT).show();
+        Voter voter=new Voter();
 
 
         if (connection!=null){
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("Select * from Voter where cnic="+String.valueOf(cnic)+" and expire_date='"+String.valueOf(edate)+"'");
+                String query = "Select * from Voter where CNIC='"+String.valueOf(cnic)+"' and expiryDate='"+String.valueOf(edate)+"'";
+                ResultSet resultSet = statement.executeQuery(query);
                 if (resultSet.next()){
-                    Intent i=new Intent(VoterLoginActivity.this,MenuActivity.class);
+                    Intent i=new Intent(this,MenuActivity.class);
+                    i.putExtra("CNIC",String.valueOf(cnic));
                     startActivity(i);
                 }
                 else{
