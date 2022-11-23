@@ -30,9 +30,9 @@ public class VoterSignUpActivity extends AppCompatActivity {
     private static String ip = "10.0.2.2";
     private static String port = "1433";
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "Votify";
+    private static String database = "test";
     private static String username = "test";
-    private static String password = "test1234";
+    private static String password = "123";
     private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
 
     private Connection connection = null;
@@ -90,7 +90,7 @@ public class VoterSignUpActivity extends AppCompatActivity {
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Voter(name,cnic,birth_date,expire_date) VALUES ('" + voter.getName()  + "','"+ String.valueOf(voter.getCnic())+ "','" + voter.getBirth_date()  + "','" + voter.getExpire_date()  + "') " ;
+                String query = "INSERT INTO Voter(name,cnic,birthDate,expiryDate) VALUES ('" + voter.getName()  + "','"+ String.valueOf(voter.getCnic())+ "','" + voter.getBirth_date()  + "','" + voter.getExpire_date()  + "') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();

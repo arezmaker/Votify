@@ -8,7 +8,24 @@ public class Voter {
     private char[] cnic=new char[15];
     private LocalDate expire_date;
     private LocalDate birth_date;
+    private String typeofVote;
+    private String votingArea;
 
+    public String getTypeofVote() {
+        return typeofVote;
+    }
+
+    public void setTypeofVote(String typeofVote) {
+        this.typeofVote = typeofVote;
+    }
+
+    public String getVotingArea() {
+        return votingArea;
+    }
+
+    public void setVotingArea(String votingArea) {
+        this.votingArea = votingArea;
+    }
     public String getName() {
         return name;
     }

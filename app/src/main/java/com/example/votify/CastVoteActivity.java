@@ -1,15 +1,14 @@
 package com.example.votify;
 
-import android.os.Bundle;
-
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ECPLoginActivity extends AppCompatActivity {
+import android.os.Bundle;
+
+public class CastVoteActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ecplogin);
-
+        setContentView(R.layout.activity_castvote);
     }
 }

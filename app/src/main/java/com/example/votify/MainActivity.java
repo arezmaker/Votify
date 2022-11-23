@@ -33,4 +33,9 @@ public class MainActivity extends AppCompatActivity {
         Intent i=new Intent(MainActivity.this,AdminLoginActivity.class);
         startActivity(i);
     }
+
+    public void popup(View view) {
+        Intent i=new Intent(MainActivity.this,MenuActivity.class);
+        startActivity(i);
+    }
 }
