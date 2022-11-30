@@ -110,7 +110,6 @@ public class UpdateInfoActivity extends AppCompatActivity {
         String NewAdd=String.valueOf(nA.getText());
 
         LatLng coord=getLocationFromAddress(this,NewAdd);
-        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.latitude), LENGTH_SHORT).show();
 
         String Stion="";
         ArrayList<VotingArea> va=new ArrayList<>();
@@ -136,36 +135,40 @@ public class UpdateInfoActivity extends AppCompatActivity {
             Toast.makeText(UpdateInfoActivity.this,"error", LENGTH_SHORT).show();
         }
 
-//        double minDistance=Float.MAX_VALUE;
-//        for (int i=0;i<va.size();i++)
-//        {
-//            double dis=distance(coord.latitude,coord.longitude,va.get(i).getLat(),va.get(i).getLon());
-//            if (dis<minDistance)
-//            {
-//                minDistance=dis;
-//                Stion=va.get(i).getStation();
-//            }
-//        }
+        double minDistance=Float.MAX_VALUE;
+        for (int i=0;i<va.size();i++)
+        {
+            double dis=distance(coord.latitude,coord.longitude,va.get(i).getLat(),va.get(i).getLon());
+            if (dis<minDistance)
+            {
+                minDistance=dis;
+                Stion=va.get(i).getStation();
+            }
+        }
 
-//        Toast.makeText(UpdateInfoActivity.this,Stion, LENGTH_SHORT).show();
+        Toast.makeText(UpdateInfoActivity.this,Stion, LENGTH_SHORT).show();
 
-//        if (connection!=null){
-//            Statement statement = null;
-//            try {
-//                statement = connection.createStatement();
-//                String query = "Update Voter set Address='"+NewAdd+"',votingArea='"+Stion+"' where CNIC='"+CNIC+"'";
-//                statement.executeQuery(query);
-//
-////                Intent in=new Intent(UpdateInfoActivity.this,MenuActivity.class);
-////                in.putExtra("CNIC",i.getStringExtra("CNIC1"));
-////                startActivity(in);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        else {
-//            Toast.makeText(UpdateInfoActivity.this,"error", LENGTH_SHORT).show();
-//        }
+        if (connection!=null){
+            Statement statement = null;
+            try {
+                statement = connection.createStatement();
+                String query = "Update Voter set Address='"+NewAdd+"',votingArea='"+Stion+"' where CNIC='"+CNIC+"'";
+                statement.executeQuery(query);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            try{
+                Intent in=new Intent(UpdateInfoActivity.this,MenuActivity.class);
+                in.putExtra("CNIC",i.getStringExtra("CNIC1"));
+                startActivity(in);
+            }
+            finally {
+
+            }
+        }
+        else {
+            Toast.makeText(UpdateInfoActivity.this,"error", LENGTH_SHORT).show();
+        }
 
 //        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.latitude),Toast.LENGTH_SHORT).show();
 //        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.longitude),Toast.LENGTH_SHORT).show();
