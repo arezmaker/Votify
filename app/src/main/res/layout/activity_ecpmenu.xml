@@ -47,6 +47,7 @@
         android:layout_marginTop="368dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="goToVoterList"
         android:text="Voter List"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"

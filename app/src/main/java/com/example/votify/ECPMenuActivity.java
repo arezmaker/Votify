@@ -18,4 +18,9 @@ public class ECPMenuActivity extends AppCompatActivity {
         Intent i=new Intent(ECPMenuActivity.this,ECPPartyList.class);
         startActivity(i);
     }
+
+    public void goToVoterList(View view){
+        Intent i=new Intent(ECPMenuActivity.this,VoterList.class);
+        startActivity(i);
+    }
 }

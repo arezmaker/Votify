@@ -19,6 +19,7 @@ import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
+import com.example.votify.model.Voter;
 import com.example.votify.model.VotingArea;
 import com.google.android.gms.maps.model.LatLng;
 
@@ -28,10 +29,12 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UpdateInfoActivity extends AppCompatActivity {
+public class AddVoter extends AppCompatActivity {
 
     private static String ip = "10.0.2.2";
     private static String port = "1433";
@@ -43,30 +46,10 @@ public class UpdateInfoActivity extends AppCompatActivity {
 
     private Connection connection = null;
 
-    EditText n;
-    EditText c;
-    EditText cA;
-    EditText nA;
-
-    Intent i;
-    String name;
-    String CNIC;
-    String Address;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_update_info);
-
-        i=getIntent();
-
-        n=findViewById(R.id.upif_name);
-
-        c=findViewById(R.id.upif_editTextNumberSigned2);
-
-        cA=findViewById(R.id.upif_editTextTextPostalAddress);
-
-        nA=findViewById(R.id.upif_editTextTextPostalAddress2);
+        setContentView(R.layout.activity_add_voter);
 
         ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.INTERNET}, PackageManager.PERMISSION_GRANTED);
 
@@ -80,37 +63,33 @@ public class UpdateInfoActivity extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
-        if (connection!=null){
-            Statement statement = null;
-            try {
-                statement = connection.createStatement();
-                String query = "Select * from Voter where CNIC ='" + i.getStringExtra("CNIC1") + "'";
-                ResultSet resultSet = statement.executeQuery(query);
-                if (resultSet.next()){
-                    name=resultSet.getString("name");
-                    n.setText(name);
-
-                    CNIC=resultSet.getString("CNIC");
-                    c.setText(CNIC);
-
-                    Address=resultSet.getString("Address");
-                    cA.setText(Address);
-                }
-
-            } catch (SQLException e) {
-                e.printStackTrace();
-            }
-        }
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
-    public void updateInfo(View view)
-    {
-        String NewAdd=String.valueOf(nA.getText());
+    public void AddNewVoter(View view) {
+        EditText ed_name=findViewById(R.id.vs_editTextTextPersonName3);
+        String name=String.valueOf(ed_name.getText());
+        //Toast.makeText(VoterSignUpActivity.this,name,Toast.LENGTH_SHORT).show();
 
-        LatLng coord=getLocationFromAddress(this,NewAdd);
-        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.latitude), LENGTH_SHORT).show();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+        EditText ed_bdate=findViewById(R.id.vs_editTextDate3);
+        LocalDate bdate=LocalDate.parse(String.valueOf(ed_bdate.getText()),formatter);
+        //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_bdate.getText()));
+        //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse("24/07/2000");
+
+        EditText ed_edate=findViewById(R.id.vs_editTextDate2);
+        LocalDate edate=LocalDate.parse(String.valueOf(ed_edate.getText()),formatter);
+
+        //Date edate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_edate.getText()));
+
+        EditText ed_cnic=findViewById(R.id.vs_editTextNumberSigned5);
+        String cnic=String.valueOf(ed_cnic.getText());
+
+        EditText add=findViewById(R.id.advt_editTextTextPostalAddress);
+        String address=String.valueOf(add.getText());
+
+        LatLng coord=getLocationFromAddress(this,address);
 
         String Stion="";
         ArrayList<VotingArea> va=new ArrayList<>();
@@ -133,45 +112,50 @@ public class UpdateInfoActivity extends AppCompatActivity {
             }
         }
         else {
-            Toast.makeText(UpdateInfoActivity.this,"error", LENGTH_SHORT).show();
+            Toast.makeText(AddVoter.this,"error", LENGTH_SHORT).show();
         }
 
-//        double minDistance=Float.MAX_VALUE;
-//        for (int i=0;i<va.size();i++)
-//        {
-//            double dis=distance(coord.latitude,coord.longitude,va.get(i).getLat(),va.get(i).getLon());
-//            if (dis<minDistance)
-//            {
-//                minDistance=dis;
-//                Stion=va.get(i).getStation();
-//            }
-//        }
+        double minDistance=Float.MAX_VALUE;
+        for (int i=0;i<va.size();i++)
+        {
+            double dis=distance(coord.latitude,coord.longitude,va.get(i).getLat(),va.get(i).getLon());
+            if (dis<minDistance)
+            {
+                minDistance=dis;
+                Stion=va.get(i).getStation();
+            }
+        }
 
-//        Toast.makeText(UpdateInfoActivity.this,Stion, LENGTH_SHORT).show();
+        Toast.makeText(AddVoter.this,Stion, LENGTH_SHORT).show();
 
-//        if (connection!=null){
-//            Statement statement = null;
-//            try {
-//                statement = connection.createStatement();
-//                String query = "Update Voter set Address='"+NewAdd+"',votingArea='"+Stion+"' where CNIC='"+CNIC+"'";
-//                statement.executeQuery(query);
-//
-////                Intent in=new Intent(UpdateInfoActivity.this,MenuActivity.class);
-////                in.putExtra("CNIC",i.getStringExtra("CNIC1"));
-////                startActivity(in);
-//            } catch (SQLException e) {
-//                e.printStackTrace();
-//            }
-//        }
-//        else {
-//            Toast.makeText(UpdateInfoActivity.this,"error", LENGTH_SHORT).show();
-//        }
+        //Button b_register=findViewById(R.id.vs_button17);
 
-//        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.latitude),Toast.LENGTH_SHORT).show();
-//        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.longitude),Toast.LENGTH_SHORT).show();
+        Voter voter=new Voter();
+        voter.setName(name);
+        voter.setBirth_date(bdate);
+        voter.setExpire_date(edate);
+        voter.setCnic(cnic);
+        voter.setAddress(address);
+        voter.setVotingArea(Stion);
+
+        if (connection!=null){
+            Statement statement = null;
+            try {
+                statement = connection.createStatement();
+                String query = "INSERT INTO Voter(name,CNIC,expiryDate,birthDate,Address,votingArea) VALUES ('" + voter.getName()  + "','"+ voter.getCnic()+ "','" + voter.getExpire_date()  + "','" + voter.getBirth_date()  + "','"+ voter.getAddress()+ "','"+voter.getVotingArea()+"') " ;
+                statement.executeQuery(query);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Toast.makeText(AddVoter.this,"error", LENGTH_SHORT).show();
+        }
+
+
+        Intent i=new Intent(AddVoter.this,VoterList.class);
+        startActivity(i);
     }
-
-
 
     public LatLng getLocationFromAddress(Context context, String strAddress) {
 
@@ -214,5 +198,4 @@ public class UpdateInfoActivity extends AppCompatActivity {
     private double rad2deg(double rad) {
         return (rad * 180.0 / Math.PI);
     }
-
 }

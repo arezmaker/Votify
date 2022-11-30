@@ -55,13 +55,31 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     public void goToFeedback(View view)
     {
+        Intent intent=getIntent();
         Intent i=new Intent(MenuActivity.this,FeedbackActivity.class);
+        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
         startActivity(i);
     }
 
     public void goToReviewStatus(View view)
     {
+        Intent intent=getIntent();
         Intent i=new Intent(MenuActivity.this,ReviewStatusActivity.class);
+        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
+        startActivity(i);
+    }
+
+    public void goToViewResult(View view)
+    {
+        Intent i=new Intent(MenuActivity.this,ViewResult.class);
+        startActivity(i);
+    }
+
+    public void goToUpdateInfo(View view)
+    {
+        Intent intent=getIntent();
+        Intent i=new Intent(MenuActivity.this,UpdateInfoActivity.class);
+        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
         startActivity(i);
     }
 }

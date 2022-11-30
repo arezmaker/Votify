@@ -32,6 +32,7 @@
         android:layout_marginBottom="60dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="goToUpdateInfo"
         android:text="Update Info"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
@@ -39,7 +40,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.145"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/feedback_button9"
@@ -73,6 +75,24 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.82"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="OnClick" />
+
+    <Button
+        android:id="@+id/result_button10"
+        android:layout_width="139dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="480dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        android:onClick="goToViewResult"
+        android:text="View Result"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.463"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="OnClick" />

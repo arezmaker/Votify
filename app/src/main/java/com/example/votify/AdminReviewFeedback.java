@@ -33,6 +33,8 @@ public class AdminReviewFeedback extends AppCompatActivity {
 
     ListView fListView;
 
+    FeedbackListAdapter adap;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,8 +80,68 @@ public class AdminReviewFeedback extends AppCompatActivity {
         }
 
         fListView = (ListView) findViewById(R.id.listReviewFeedback);
-        FeedbackListAdapter adap=new FeedbackListAdapter(this,0,f);
+        adap=new FeedbackListAdapter(this,0,f);
         fListView.setAdapter(adap);
 
+//        @SuppressLint({"MissingInflatedId", "LocalSuppress"})
+//        ImageButton IMG =fListView.findViewById(R.id.imageButton_remove);
+//        IMG.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                adap.notifyDataSetChanged();
+//            }
+//        });
+
+//        fListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                adap.notifyDataSetChanged();
+//            }
+//        });s
+
+
     }
+
+//    public void onDustbin(View view){
+//        adap.notifyDataSetChanged();
+//        this.recreate();
+//    }
+
+
+//    public class FeedbackAdapter extends ArrayAdapter<Feedback> {
+//
+//        ArrayList<Feedback> objects;
+//
+//        public FeedbackAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Feedback> objects) {
+//            super(context, resource, objects);
+//            this.objects=objects;
+//
+//        }
+//
+//        @NonNull
+//        @Override
+//        public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
+//
+//            Feedback f = getItem(position);
+//
+//            if (convertView == null){
+//                convertView = LayoutInflater.from(getContext().getApplicationContext()).inflate(R.layout.feedback_list_custom_cell, parent, false);
+//            }
+//            EditText sub = convertView.findViewById(R.id.FeedbackSubject);
+//            sub.setText(f.getSubject());
+//
+//            EditText msg = convertView.findViewById(R.id.FeedbackPreview);
+//            msg.setText(f.getMessage());
+//
+//            Button rem=(Button) convertView.findViewById(R.id.imageButton_remove);
+//            rem.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    Toast.makeText(getContext(), objects.get(position).getSubject(),Toast.LENGTH_SHORT).show();
+//                }
+//            });
+//
+//            return convertView;
+//        }
+//    }
 }

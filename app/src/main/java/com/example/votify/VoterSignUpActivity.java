@@ -75,8 +75,7 @@ public class VoterSignUpActivity extends AppCompatActivity {
         //Date edate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_edate.getText()));
 
         EditText ed_cnic=findViewById(R.id.vs_editTextNumberSigned5);
-        char[] cnic=new char[15];
-        cnic=String.valueOf(ed_cnic.getText()).toCharArray();
+        String cnic=String.valueOf(ed_cnic.getText());
 
         //Button b_register=findViewById(R.id.vs_button17);
 
@@ -90,7 +89,7 @@ public class VoterSignUpActivity extends AppCompatActivity {
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Voter(name,cnic,birthDate,expiryDate) VALUES ('" + voter.getName()  + "','"+ String.valueOf(voter.getCnic())+ "','" + voter.getBirth_date()  + "','" + voter.getExpire_date()  + "') " ;
+                String query = "INSERT INTO Voter(name,cnic,birthDate,expiryDate) VALUES ('" + voter.getName()  + "','"+ voter.getCnic()+ "','" + voter.getBirth_date()  + "','" + voter.getExpire_date()  + "') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();
