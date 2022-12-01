@@ -149,8 +149,8 @@ public class AddParty extends AppCompatActivity {
             Toast.makeText(AddParty.this,"error", LENGTH_SHORT).show();
         }
 
-//        Intent i=new Intent(AddParty.this,AddPartyCandidates.class);
-//        startActivity(i);
+        Intent i=new Intent(AddParty.this,ECPPartyList.class);
+        startActivity(i);
     }
 
 

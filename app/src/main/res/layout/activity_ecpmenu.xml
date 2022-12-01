@@ -65,6 +65,7 @@
         android:layout_marginTop="508dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="goToCandidateList"
         android:text="Candidate List"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"

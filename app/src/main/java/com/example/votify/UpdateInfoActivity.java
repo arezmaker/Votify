@@ -5,6 +5,7 @@ import static android.widget.Toast.LENGTH_SHORT;
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
@@ -81,11 +82,13 @@ public class UpdateInfoActivity extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+
         if (connection!=null){
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "Select * from Voter where CNIC ='" + i.getStringExtra("CNIC1") + "'";
+                String query = "Select * from Voter where CNIC ='" + sharedPreferences.getString("vCNIC","") + "'";
                 ResultSet resultSet = statement.executeQuery(query);
                 if (resultSet.next()){
                     name=resultSet.getString("name");

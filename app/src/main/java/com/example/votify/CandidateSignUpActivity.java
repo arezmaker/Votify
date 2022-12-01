@@ -17,7 +17,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.votify.model.Candidate;
-import com.example.votify.model.Voter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,9 +30,9 @@ public class CandidateSignUpActivity extends AppCompatActivity {
     private static String ip = "10.0.2.2";
     private static String port = "1433";
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "test";
+    private static String database = "Votify";
     private static String username = "test";
-    private static String password = "123";
+    private static String password = "test1234";
     private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
 
     private Connection connection = null;

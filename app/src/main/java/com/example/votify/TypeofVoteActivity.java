@@ -2,9 +2,6 @@ package com.example.votify;
 
 import static android.widget.Toast.LENGTH_SHORT;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -17,22 +14,24 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
 public class TypeofVoteActivity extends AppCompatActivity {
 
     private static String ip = "10.0.2.2";
     private static String port = "1433";
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "test";
+    private static String database = "Votify";
     private static String username = "test";
-    private static String password = "123";
-    private static String url = "jdbc:jtds:sqlserver://" + ip + ":" + port + "/" + database;
+    private static String password = "test1234";
+    private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
 
     private Connection connection = null;
 

@@ -24,8 +24,16 @@ public class ECPMenuActivity extends AppCompatActivity {
         startActivity(i);
     }
 
+    public void goToCandidateList(View view){
+        Intent i=new Intent(ECPMenuActivity.this,CandidateListActivity.class);
+        startActivity(i);
+    }
+
     public void goToCreateElection(View view){
-        Intent i=new Intent(ECPMenuActivity.this,CreateElection.class);
+        Intent i= null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            i = new Intent(ECPMenuActivity.this, CreateElection.class);
+        }
         startActivity(i);
     }
 }

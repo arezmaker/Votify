@@ -1,10 +1,5 @@
 package com.example.votify;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Context;
 import android.content.Intent;
@@ -22,6 +17,11 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import com.example.votify.model.Candidate;
 
 import java.sql.Connection;
@@ -36,10 +36,10 @@ public class CandidateCastVote extends AppCompatActivity {
     private static String ip = "10.0.2.2";
     private static String port = "1433";
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "test";
+    private static String database = "Votify";
     private static String username = "test";
-    private static String password = "123";
-    private static String url = "jdbc:jtds:sqlserver://" + ip + ":" + port + "/" + database;
+    private static String password = "test1234";
+    private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
 
     private Connection connection = null;
     SimpleAdapter ad;
@@ -151,7 +151,7 @@ public class CandidateCastVote extends AppCompatActivity {
             Candidate f = getItem(position);
 
             if (convertView == null){
-                convertView = LayoutInflater.from(getContext().getApplicationContext()).inflate(R.layout.party_list_custom_cell, parent, false);
+                convertView = LayoutInflater.from(getContext().getApplicationContext()).inflate(R.layout.cast_vote_list_custom_cell, parent, false);
             }
             TextView sub = convertView.findViewById(R.id.partyName);
             sub.setText(f.getParty());
@@ -171,12 +171,21 @@ public class CandidateCastVote extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     Toast.makeText(getContext(), "Vote has been casted",Toast.LENGTH_LONG).show();
+                    String pty=objects.get(position).getParty();
                     if (connection!=null){
                         Statement statement = null;
                         Statement statement1 = null;
+                        Statement statement2=null;
                         try {
                             statement = connection.createStatement();
                             ResultSet resultSet1 = statement.executeQuery("Update Candidate set totalVote +=1 where CNIC="+objects.get(position).getCNIC()+"");
+
+                        } catch (SQLException e) {
+                            e.printStackTrace();
+                        }
+                        try {
+                            statement2 = connection.createStatement();
+                            ResultSet resultSet1 = statement.executeQuery("Update Party set totalVote +=1 where name='"+pty+"'");
 
                         } catch (SQLException e) {
                             e.printStackTrace();

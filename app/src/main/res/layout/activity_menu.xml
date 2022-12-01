@@ -139,28 +139,12 @@
             android:layout_height="55dp"
             android:background="@drawable/border"
             android:onClick="popup"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
             app:srcCompat="@drawable/logomakr_0hkorn"
-            tools:ignore="MissingConstraint,MissingConstraints"
-            tools:layout_editor_absoluteX="3dp"
-            tools:layout_editor_absoluteY="3dp" />
+            tools:ignore="MissingConstraint,MissingConstraints" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <Button
-        android:id="@+id/result_button10"
-        android:layout_width="139dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="480dp"
-        android:background="#1E4720"
-        android:backgroundTint="#265728"
-        android:onClick="goToViewResult"
-        android:text="View Result"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

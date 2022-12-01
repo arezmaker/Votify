@@ -2,6 +2,7 @@ package com.example.votify;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -58,8 +59,9 @@ public class ReviewStatusActivity extends AppCompatActivity {
         if (connection!=null){
             Statement statement = null;
             try {
+                SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                 statement = connection.createStatement();
-                ResultSet resultSet = statement.executeQuery("Select CNIC, Status from Voter where CNIC='12345'");
+                ResultSet resultSet = statement.executeQuery("Select CNIC, Status from Voter where CNIC='"+sharedPreferences.getString("vCNIC","")+"'");
                 while (resultSet.next())
                 {
                     c.setText(resultSet.getString("CNIC"));

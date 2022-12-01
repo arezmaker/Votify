@@ -65,23 +65,26 @@ public class AddCandidate extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void AddNewCandidate(View view) {
-        EditText ed_name=findViewById(R.id.vs_editTextTextPersonName3);
+        EditText ed_party=findViewById(R.id.cs_Party);
+        String party=String.valueOf(ed_party.getText());
+
+        EditText ed_name=findViewById(R.id.cs_editTextTextPersonName3);
         String name=String.valueOf(ed_name.getText());
         //Toast.makeText(VoterSignUpActivity.this,name,Toast.LENGTH_SHORT).show();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        EditText ed_bdate=findViewById(R.id.vs_editTextDate3);
+        EditText ed_bdate=findViewById(R.id.cs_editTextDate3);
         LocalDate bdate=LocalDate.parse(String.valueOf(ed_bdate.getText()),formatter);
         //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_bdate.getText()));
         //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse("24/07/2000");
 
-        EditText ed_edate=findViewById(R.id.vs_editTextDate2);
+        EditText ed_edate=findViewById(R.id.cs_editTextDate2);
         LocalDate edate=LocalDate.parse(String.valueOf(ed_edate.getText()),formatter);
 
         //Date edate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_edate.getText()));
 
-        EditText ed_cnic=findViewById(R.id.vs_editTextNumberSigned5);
+        EditText ed_cnic=findViewById(R.id.cs_editTextNumberSigned5);
         String cnic=String.valueOf(ed_cnic.getText());
 
         EditText add=findViewById(R.id.adct_editTextTextPostalAddress);
@@ -135,12 +138,13 @@ public class AddCandidate extends AppCompatActivity {
         candidate.setCNIC(cnic);
         candidate.setAddress(address);
         candidate.setVotingArea(Stion);
+        candidate.setParty(party);
 
         if (connection!=null){
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Candidate(name,CNIC,expiryDate,birthDate,Address,votingArea) VALUES ('" + candidate.getName()  + "','"+ candidate.getCNIC()+ "','" + candidate.getExpiryDate()  + "','" + candidate.getBirthDate()  + "','"+ candidate.getAddress()+ "','"+candidate.getVotingArea()+"') " ;
+                String query = "INSERT INTO Candidate(name,CNIC,expiryDate,birthDate,Address,votingArea,party) VALUES ('" + candidate.getName()  + "','"+ candidate.getCNIC()+ "','" + candidate.getExpiryDate()  + "','" + candidate.getBirthDate()  + "','"+ candidate.getAddress()+ "','"+candidate.getVotingArea()+"','"+candidate.getParty()+"') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();

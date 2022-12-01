@@ -1,8 +1,5 @@
 package com.example.votify;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -11,6 +8,9 @@ import android.os.Bundle;
 import android.os.StrictMode;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -18,13 +18,14 @@ import java.sql.SQLException;
 import java.sql.Statement;
 
 public class CandidateProfileActivity extends AppCompatActivity {
+
     private static String ip = "10.0.2.2";
     private static String port = "1433";
     private static String Classes = "net.sourceforge.jtds.jdbc.Driver";
-    private static String database = "test";
+    private static String database = "Votify";
     private static String username = "test";
-    private static String password = "123";
-    private static String url = "jdbc:jtds:sqlserver://" + ip + ":" + port + "/" + database;
+    private static String password = "test1234";
+    private static String url = "jdbc:jtds:sqlserver://"+ip+":"+port+"/"+database;
 
     private Connection connection = null;
 

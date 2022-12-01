@@ -34,10 +34,10 @@ public class PartyListAdapter extends ArrayAdapter<Party> {
         if (convertView == null){
             convertView = LayoutInflater.from(getContext()).inflate(R.layout.party_list_custom_cell, parent, false);
         }
-        EditText PName = convertView.findViewById(R.id.FeedbackSubject);
+        EditText PName = convertView.findViewById(R.id.partyName);
         PName.setText(p.getName());
 
-        EditText Chairname = convertView.findViewById(R.id.FeedbackPreview);
+        EditText Chairname = convertView.findViewById(R.id.chairmanName);
         Chairname.setText(p.getChairman());
 
         ImageView imgsymbol = convertView.findViewById(R.id.imageView16);

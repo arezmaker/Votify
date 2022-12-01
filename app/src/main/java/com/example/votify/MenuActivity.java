@@ -1,14 +1,11 @@
 package com.example.votify;
 
-import static android.widget.Toast.*;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -63,17 +60,21 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     public void goToFeedback(View view)
     {
-        Intent intent=getIntent();
         Intent i=new Intent(MenuActivity.this,FeedbackActivity.class);
-        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
+        SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("vCNIC",sharedPreferences.getString("vCNIC",""));
+        editor.apply();
         startActivity(i);
     }
 
     public void goToReviewStatus(View view)
     {
-        Intent intent=getIntent();
         Intent i=new Intent(MenuActivity.this,ReviewStatusActivity.class);
-        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
+        SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("vCNIC",sharedPreferences.getString("vCNIC",""));
+        editor.apply();
         startActivity(i);
     }
 
@@ -85,9 +86,11 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
 
     public void goToUpdateInfo(View view)
     {
-        Intent intent=getIntent();
         Intent i=new Intent(MenuActivity.this,UpdateInfoActivity.class);
-        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
+        SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("vCNIC",sharedPreferences.getString("vCNIC",""));
+        editor.apply();
         startActivity(i);
     }
 }

@@ -71,7 +71,7 @@ public class CandidateListActivity extends AppCompatActivity {
                 {
                     String name=resultSet.getString("name");
                     String cnic=resultSet.getString("CNIC");
-                    Av.add(new Candidate(name,cnic,null,null,null,null,0,null,0,null,0,null));
+                    Av.add(new Candidate(name,cnic,null,null,null,resultSet.getString("party"),0,null,0,null,0,null));
                 }
 //                if (resultSet.next()){
 //                    Intent i=new Intent(VoterLoginActivity.this,MenuActivity.class);
@@ -119,6 +119,9 @@ public class CandidateListActivity extends AppCompatActivity {
 
             EditText cnic = convertView.findViewById(R.id.cl_editTextNumberSigned5);
             cnic.setText(c.getCNIC());
+
+            EditText pty=convertView.findViewById(R.id.cl_Party);
+            pty.setText(c.getParty());
 
             return convertView;
         }

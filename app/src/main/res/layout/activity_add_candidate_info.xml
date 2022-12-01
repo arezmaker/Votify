@@ -94,7 +94,7 @@
         android:id="@+id/button1"
         android:layout_width="130dp"
         android:layout_height="66dp"
-        android:layout_marginTop="532dp"
+        android:layout_marginTop="612dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:onClick="goToAddPartyCandidates"
@@ -103,7 +103,7 @@
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
