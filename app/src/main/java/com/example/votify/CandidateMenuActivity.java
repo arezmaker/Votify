@@ -1,13 +1,13 @@
 package com.example.votify;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 
 public class CandidateMenuActivity extends AppCompatActivity implements PopupMenu.OnMenuItemClickListener {
@@ -80,11 +80,11 @@ public class CandidateMenuActivity extends AppCompatActivity implements PopupMen
         startActivity(i);
     }
 
-//    public void goToViewResult1(View view)
-//    {
-//        Intent i=new Intent(CandidateMenuActivity.this,ViewResult.class);
-//        startActivity(i);
-//    }
+    public void goToViewResult1(View view)
+    {
+        Intent i=new Intent(CandidateMenuActivity.this,ViewResult.class);
+        startActivity(i);
+    }
 
     public void goToUpdateInfo1(View view)
     {
