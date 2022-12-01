@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#FFFFFF"
+    tools:context=".CandidateReviewStatusActivity">
 
     <ImageView
         android:id="@+id/imageView10"
@@ -18,7 +19,7 @@
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
 
     <EditText
-        android:id="@+id/rf_editTextNumberSigned"
+        android:id="@+id/ed_cnic"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:ems="10"
@@ -35,7 +36,7 @@
         app:layout_constraintVertical_bias="0.458" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/ed_stat"
         android:layout_width="211dp"
         android:layout_height="67dp"
         android:ems="10"
@@ -58,14 +59,17 @@
         android:layout_marginBottom="88dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="changeStatus"
         android:text="Change Status"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintTop_toBottomOf="@+id/ed_stat"
+        app:layout_constraintVertical_bias="0.779"
+        tools:ignore="OnClick" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

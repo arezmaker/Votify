@@ -22,9 +22,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
 
-public class TypeofVoteActivity extends AppCompatActivity {
+public class CandidateTypeofVote extends AppCompatActivity {
 
     private static String ip = "10.0.2.2";
     private static String port = "1433";
@@ -70,17 +69,17 @@ public class TypeofVoteActivity extends AppCompatActivity {
                         try {
                             SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                             statement = connection.createStatement();
-                            String query1 = "Select * from Voter where CNIC='" + sharedPreferences.getString("vCNIC","") + "' and typeofVote = 'national'";
+                            String query1 = "Select * from Candidate where CNIC='" + sharedPreferences.getString("cCNIC","") + "' and typeofVote = 'national'";
                             ResultSet resultSet = statement.executeQuery(query1);
                             if (resultSet.next()) {
-                                Intent i1 = new Intent(TypeofVoteActivity.this, CastVoteActivity.class);
+                                Intent i1 = new Intent(CandidateTypeofVote.this, CandidateCastVote.class);
                                 SharedPreferences sharedPreferences1=getSharedPreferences("CNIC",MODE_PRIVATE);
                                 SharedPreferences.Editor editor=sharedPreferences1.edit();
-                                editor.putString("vCNIC",sharedPreferences1.getString("vCNIC",""));
+                                editor.putString("cCNIC",sharedPreferences1.getString("cCNIC",""));
                                 editor.apply();
                                 startActivity(i1);
                             } else {
-                                Toast.makeText(TypeofVoteActivity.this, "Wrong Type of Vote Selected", LENGTH_SHORT).show();
+                                Toast.makeText(CandidateTypeofVote.this, "Wrong Type of Vote Selected", LENGTH_SHORT).show();
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
@@ -92,17 +91,17 @@ public class TypeofVoteActivity extends AppCompatActivity {
                         try {
                             SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                             statement = connection.createStatement();
-                            String query1 = "Select * from Voter where CNIC='" + sharedPreferences.getString("vCNIC","") + "' and typeofVote = 'provincial'";
+                            String query1 = "Select * from Candidate where CNIC='" + sharedPreferences.getString("cCNIC","") + "' and typeofVote = 'provincial'";
                             ResultSet resultSet = statement.executeQuery(query1);
                             if (resultSet.next()) {
-                                Intent i1 = new Intent(TypeofVoteActivity.this, CastVoteActivity.class);
+                                Intent i1 = new Intent(CandidateTypeofVote.this, CandidateCastVote.class);
                                 SharedPreferences sharedPreferences1=getSharedPreferences("CNIC",MODE_PRIVATE);
                                 SharedPreferences.Editor editor=sharedPreferences1.edit();
-                                editor.putString("vCNIC",sharedPreferences1.getString("vCNIC",""));
+                                editor.putString("cCNIC",sharedPreferences1.getString("cCNIC",""));
                                 editor.apply();
                                 startActivity(i1);
                             } else {
-                                Toast.makeText(TypeofVoteActivity.this, "Wrong Type of Vote Selected", LENGTH_SHORT).show();
+                                Toast.makeText(CandidateTypeofVote.this, "Wrong Type of Vote Selected", LENGTH_SHORT).show();
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();

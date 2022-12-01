@@ -4,15 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".CandidateUpdateInfoActivity">
 
     <ImageView
         android:id="@+id/imageView3"
         android:layout_width="330dp"
         android:layout_height="281dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="4dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,87 +22,126 @@
         android:id="@+id/upif_confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:layout_marginEnd="76dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="28dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:foregroundTint="#FEFEFE"
+        android:onClick="updateInfo"
         android:text="confirm"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upif_editTextTextPostalAddress2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/upif_name"
-        android:layout_width="256dp"
-        android:layout_height="54dp"
-        android:layout_marginTop="324dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.521"
+        app:layout_constraintHorizontal_bias="0.758"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/upif_editTextTextPostalAddress"
-        android:layout_width="256dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="24dp"
-        android:ems="10"
-        android:hint="Current Address"
-        android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toTopOf="@+id/upif_editTextTextPostalAddress2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/upif_editTextTextPostalAddress2"
-        android:layout_width="256dp"
-        android:layout_height="54dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="132dp"
-        android:ems="10"
-        android:hint="New Address"
-        android:inputType="textPostalAddress"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.525"
-        app:layout_constraintStart_toStartOf="parent" />
+        tools:ignore="OnClick" />
 
     <Button
         android:id="@+id/upif_cancel_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="76dp"
-        android:layout_marginTop="48dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="28dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:text="cancel"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upif_editTextTextPostalAddress2"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/upif_editTextNumberSigned2"
-        android:layout_width="256dp"
-        android:layout_height="54dp"
-        android:ems="10"
-        android:hint="CNIC"
-        android:inputType="numberSigned"
-        app:layout_constraintBottom_toTopOf="@+id/upif_editTextTextPostalAddress"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.244"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="41dp"
+        android:layout_height="281dp"
+        android:layout_marginTop="4dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintEnd_toStartOf="@+id/imageView3"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upif_name" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="41dp"
+        android:layout_height="281dp"
+        android:layout_marginTop="4dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView3"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="329dp"
+        android:layout_height="343dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.734">
+
+        <EditText
+            android:id="@+id/upif_editTextTextPostalAddress2"
+            android:layout_width="256dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="256dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="New Address"
+            android:inputType="textPostalAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/upif_editTextTextPostalAddress"
+            android:layout_width="256dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="180dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="Current Address"
+            android:inputType="textPostalAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/upif_editTextNumberSigned2"
+            android:layout_width="256dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="104dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="CNIC"
+            android:inputType="numberSigned"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.506"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/upif_name"
+            android:layout_width="256dp"
+            android:layout_height="54dp"
+            android:layout_marginTop="28dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.493"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

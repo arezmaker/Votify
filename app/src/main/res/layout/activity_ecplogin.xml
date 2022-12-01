@@ -11,16 +11,17 @@
         android:id="@+id/ecp_login_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="68dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="login"
         android:text="Log In"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         tools:ignore="MissingConstraints" />
 
@@ -48,45 +49,77 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
-
-    <Button
-        android:id="@+id/ecp_signup_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="38dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="4dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:text="Sign Up"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ecp_login_button" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/e_editTextTextPassword"
-        android:layout_width="209dp"
-        android:layout_height="77dp"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword"
-        app:layout_constraintBottom_toTopOf="@+id/ecp_login_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/e_editTextTextPersonName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <EditText
-        android:id="@+id/e_editTextTextPersonName"
-        android:layout_width="210dp"
-        android:layout_height="75dp"
-        android:layout_marginTop="20dp"
-        android:ems="10"
-        android:hint="Username"
-        android:inputType="textPersonName"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="49dp"
+        android:layout_height="293dp"
+        android:layout_marginTop="4dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent">
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="334dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="392dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toTopOf="parent">
+
+
+        <EditText
+            android:id="@+id/e_editTextTextPassword"
+            android:layout_width="209dp"
+            android:layout_height="77dp"
+            android:layout_marginTop="108dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.392"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/e_editTextTextPersonName"
+            android:layout_width="210dp"
+            android:layout_height="75dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="Username"
+            android:inputType="textPersonName"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.395"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

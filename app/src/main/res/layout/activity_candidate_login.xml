@@ -7,38 +7,53 @@
     android:background="#FFFFFF"
     tools:context=".CandidateLoginActivity">
 
-    <EditText
-        android:id="@+id/c_editTextNumberSigned"
-        android:layout_width="211dp"
-        android:layout_height="67dp"
-        android:ems="10"
-        android:hint="CNIC"
-        android:inputType="numberSigned"
-        android:shadowColor="#000000"
-        android:shadowDx="1.5"
-        android:shadowDy="1.3"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="334dp"
+        android:layout_height="204dp"
+        android:layout_marginTop="392dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.467"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.596" />
+        app:layout_constraintTop_toTopOf="parent">
 
-    <EditText
-        android:id="@+id/c_editTextDate"
-        android:layout_width="211dp"
-        android:layout_height="67dp"
-        android:ems="10"
-        android:hint="Expiry Date"
-        android:inputType="date"
-        android:shadowColor="#000000"
-        android:shadowDx="1.5"
-        android:shadowDy="1.3"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.502"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/c_editTextNumberSigned"
-        app:layout_constraintVertical_bias="0.094" />
+        <EditText
+            android:id="@+id/c_editTextNumberSigned"
+            android:layout_width="211dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="CNIC"
+            android:inputType="numberSigned"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/c_editTextDate"
+            android:layout_width="211dp"
+            android:layout_height="67dp"
+            android:layout_marginTop="104dp"
+            android:background="@drawable/border"
+            android:ems="10"
+            android:hint="Expiry Date"
+            android:inputType="date"
+            android:shadowColor="#000000"
+            android:shadowDx="1.5"
+            android:shadowDy="1.3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.504"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ImageView
         android:id="@+id/imageView2"
@@ -65,29 +80,37 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
         app:layout_constraintVertical_bias="0.372" />
-
-    <Button
-        android:id="@+id/c_login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="38dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="4dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:onClick="goToMenuActivity"
-        android:text="Log In"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/c_editTextDate" />
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="49dp"
+        android:layout_height="293dp"
+        android:layout_marginTop="4dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/c_signup_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginBottom="16dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:onClick="goToCandidateSignUpActivity"
@@ -95,8 +118,26 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/c_login_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        android:onClick="goToMenuActivity"
+        android:text="Log In"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/c_signup_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/c_login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        tools:ignore="NotSibling" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

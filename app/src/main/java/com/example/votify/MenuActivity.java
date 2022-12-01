@@ -1,10 +1,14 @@
 package com.example.votify;
 
+import static android.widget.Toast.*;
+
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.PopupMenu;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -26,12 +30,14 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     @Override
     public boolean onMenuItemClick(MenuItem item)
     {
-        Intent intent=getIntent();
         switch (item.getItemId())
         {
             case R.id.profile:
                 Intent i=new Intent(this,ProfileActivity.class);
-                i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
+                SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+                SharedPreferences.Editor editor=sharedPreferences.edit();
+                editor.putString("vCNIC",sharedPreferences.getString("vCNIC",""));
+                editor.apply();
                 startActivity(i);
                 return true;
             case R.id.logout:
@@ -46,9 +52,11 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
     }
 
     public void gotoCastVote(View view){
-        Intent intent=getIntent();
         Intent i=new Intent(this, TypeofVoteActivity.class);
-        i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
+        SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+        SharedPreferences.Editor editor=sharedPreferences.edit();
+        editor.putString("vCNIC",sharedPreferences.getString("vCNIC",""));
+        editor.apply();
         startActivity(i);
     }
 }
