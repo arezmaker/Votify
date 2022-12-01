@@ -97,4 +97,5 @@ public class CandidateMenuActivity extends AppCompatActivity implements PopupMen
         //i.putExtra("CNIC1",intent.getStringExtra("CNIC"));
         startActivity(i);
     }
+
 }

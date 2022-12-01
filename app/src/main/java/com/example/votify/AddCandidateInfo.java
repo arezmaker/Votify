@@ -18,4 +18,5 @@ public class AddCandidateInfo extends AppCompatActivity {
         Intent i=new Intent(AddCandidateInfo.this,AddPartyCandidates.class);
         startActivity(i);
     }
+
 }

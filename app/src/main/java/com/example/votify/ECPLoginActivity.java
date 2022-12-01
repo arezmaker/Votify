@@ -112,4 +112,5 @@ public class ECPLoginActivity extends AppCompatActivity {
 //        Intent i=new Intent(ECPLoginActivity.this,VoterSignUpActivity.class);
 //        startActivity(i);
 //    }
+
 }

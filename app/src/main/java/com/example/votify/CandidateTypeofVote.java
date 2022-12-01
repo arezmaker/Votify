@@ -116,4 +116,5 @@ public class CandidateTypeofVote extends AppCompatActivity {
             }
         });
     }
+
 }

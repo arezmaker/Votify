@@ -82,8 +82,6 @@ public class VoterSignUpActivity extends AppCompatActivity {
         String currdate=formatter.format(LocalDate.now());
         LocalDate present=LocalDate.parse(currdate,formatter);
 
-        //Toast.makeText(VoterSignUpActivity.this,currdate,Toast.LENGTH_SHORT).show();
-
         EditText ed_bdate=findViewById(R.id.vs_editTextDate3);
         LocalDate bdate;
         try {
@@ -95,7 +93,6 @@ public class VoterSignUpActivity extends AppCompatActivity {
 
         Period period = Period.between(bdate, present);
         int years=period.getYears();
-        //Toast.makeText(VoterSignUpActivity.this,String.valueOf(years),Toast.LENGTH_SHORT).show();
 
         if (years < 18)
         {

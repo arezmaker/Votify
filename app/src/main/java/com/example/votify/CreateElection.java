@@ -128,7 +128,6 @@ public class CreateElection extends AppCompatActivity {
 
                     }
                 }
-
             }
             catch (SQLException e) {
                 e.printStackTrace();

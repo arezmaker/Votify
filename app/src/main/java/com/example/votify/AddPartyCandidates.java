@@ -23,4 +23,5 @@ public class AddPartyCandidates extends AppCompatActivity {
         Intent i=new Intent(AddPartyCandidates.this,ECPPartyList.class);
         startActivity(i);
     }
+
 }

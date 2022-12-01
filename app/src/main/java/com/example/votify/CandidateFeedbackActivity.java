@@ -90,4 +90,5 @@ public class CandidateFeedbackActivity extends AppCompatActivity {
         Intent i=new Intent(CandidateFeedbackActivity.this,CandidateMenuActivity.class);
         startActivity(i);
     }
+
 }

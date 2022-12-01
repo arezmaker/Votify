@@ -114,8 +114,6 @@ public class CandidateLoginActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
-
     }
 
     public void goToCandidateSignUpActivity(View view){

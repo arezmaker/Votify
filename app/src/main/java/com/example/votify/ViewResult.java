@@ -157,7 +157,6 @@ public class ViewResult extends AppCompatActivity {
             }
         }
 
-
         // adding new entry to our array list with bar
         // entry and passing x and y axis value to it.
 //        barEntriesArrayList.add(new BarEntry(1f, 4));

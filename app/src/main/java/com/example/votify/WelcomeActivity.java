@@ -37,4 +37,5 @@ public class WelcomeActivity extends AppCompatActivity {
         ecplogo.startAnimation(myanim);
         votlogo.startAnimation(myanim2);
     }
+
 }

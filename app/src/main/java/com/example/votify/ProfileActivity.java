@@ -54,6 +54,7 @@ public class ProfileActivity extends AppCompatActivity{
         TextView textView4 = (TextView) findViewById(R.id.textView5);
         TextView textView5 = (TextView) findViewById(R.id.textView6);
         Intent i = getIntent();
+
         //Toast.makeText(ProfileActivity.this, i.getStringExtra("CNIC1"), LENGTH_SHORT).show();
         if (connection != null) {
             Statement statement = null;

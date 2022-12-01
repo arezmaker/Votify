@@ -69,7 +69,6 @@ public class AdminMenuActivity extends AppCompatActivity {
 
     }
 
-
     public void goToReviewFeedback(View view)
     {
         Intent i=new Intent(AdminMenuActivity.this,AdminReviewFeedback.class);

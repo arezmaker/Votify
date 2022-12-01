@@ -96,9 +96,6 @@ public class CandidateListActivity extends AppCompatActivity {
         startActivity(i);
     }
 
-
-
-
     public class CandidateListAdapter extends ArrayAdapter<Candidate> {
 
         public CandidateListAdapter(@NonNull Context context, int resource, @NonNull List<Candidate> objects) {

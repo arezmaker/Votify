@@ -90,5 +90,6 @@ public class ECPPartyList extends AppCompatActivity {
         Intent i=new Intent(ECPPartyList.this,AddParty.class);
         startActivity(i);
     }
+
 }
 

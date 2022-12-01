@@ -93,6 +93,5 @@ public class ReviewStatusActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
         }
-
     }
 }

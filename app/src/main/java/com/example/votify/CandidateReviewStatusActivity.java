@@ -98,4 +98,5 @@ public class CandidateReviewStatusActivity extends AppCompatActivity {
         Toast.makeText(CandidateReviewStatusActivity.this, "Status Changed",Toast.LENGTH_SHORT).show();
         startActivity(i);
     }
+
 }

@@ -106,7 +106,6 @@ public class CandidateUpdateInfoActivity extends AppCompatActivity {
         }
     }
 
-
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateInfo(View view)
     {

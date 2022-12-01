@@ -81,7 +81,6 @@ public class CandidateSignUpActivity extends AppCompatActivity {
             Toast.makeText(CandidateSignUpActivity.this,"Invalid name",Toast.LENGTH_SHORT).show();
             return;
         }
-        //Toast.makeText(VoterSignUpActivity.this,name,Toast.LENGTH_SHORT).show();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
@@ -99,7 +98,6 @@ public class CandidateSignUpActivity extends AppCompatActivity {
 
         Period period = Period.between(bdate, present);
         int years=period.getYears();
-        //Toast.makeText(VoterSignUpActivity.this,String.valueOf(years),Toast.LENGTH_SHORT).show();
 
         if (years < 18)
         {

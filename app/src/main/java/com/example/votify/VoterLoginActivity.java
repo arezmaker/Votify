@@ -76,7 +76,6 @@ public class VoterLoginActivity extends AppCompatActivity {
             return;
         }
 
-
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         EditText v_date=findViewById(R.id.v_editTextDate);

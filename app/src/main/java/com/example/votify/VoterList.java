@@ -96,9 +96,6 @@ public class VoterList extends AppCompatActivity {
         startActivity(i);
     }
 
-
-
-
     public class VoterListAdapter extends ArrayAdapter<Voter> {
 
         public VoterListAdapter(@NonNull Context context, int resource, @NonNull List<Voter> objects) {

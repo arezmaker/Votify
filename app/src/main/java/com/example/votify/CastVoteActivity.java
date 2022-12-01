@@ -190,13 +190,11 @@ public class CastVoteActivity extends AppCompatActivity {
                         } finally {
 
                         }
-
                     }
-
                 }
             });
-
             return convertView;
         }
     }
+
 }

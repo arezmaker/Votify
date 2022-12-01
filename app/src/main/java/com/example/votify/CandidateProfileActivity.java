@@ -76,4 +76,5 @@ public class CandidateProfileActivity extends AppCompatActivity {
             }
         }
     }
+
 }

@@ -36,4 +36,5 @@ public class ECPMenuActivity extends AppCompatActivity {
         }
         startActivity(i);
     }
+
 }

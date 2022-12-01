@@ -209,12 +209,9 @@ public class CandidateCastVote extends AppCompatActivity {
                         } finally {
 
                         }
-
                     }
-
                 }
             });
-
             return convertView;
         }
     }

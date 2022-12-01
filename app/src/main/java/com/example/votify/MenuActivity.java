@@ -46,7 +46,6 @@ public class MenuActivity extends AppCompatActivity implements PopupMenu.OnMenuI
                 return false;
 
         }
-
     }
 
     public void gotoCastVote(View view){

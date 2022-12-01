@@ -162,6 +162,4 @@ public class AddParty extends AppCompatActivity {
         Intent i=new Intent(AddParty.this,ECPPartyList.class);
         startActivity(i);
     }
-
-
 }

@@ -189,8 +189,6 @@ public class UpdateInfoActivity extends AppCompatActivity {
 //        Toast.makeText(UpdateInfoActivity.this,String.valueOf(coord.longitude),Toast.LENGTH_SHORT).show();
     }
 
-
-
     public LatLng getLocationFromAddress(Context context, String strAddress) {
 
         Geocoder coder = new Geocoder(context);
