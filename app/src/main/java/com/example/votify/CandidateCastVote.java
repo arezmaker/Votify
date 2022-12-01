@@ -1,7 +1,5 @@
 package com.example.votify;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -33,7 +31,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-public class CastVoteActivity extends AppCompatActivity {
+public class CandidateCastVote extends AppCompatActivity {
 
     private static String ip = "10.0.2.2";
     private static String port = "1433";
@@ -47,7 +45,7 @@ public class CastVoteActivity extends AppCompatActivity {
     SimpleAdapter ad;
     ImageButton button;
     ListView listView;
-    CandidateListAdapter adapter;
+    CandidateCastVote.CandidateListAdapter adapter;
     Intent i;
     int castVote;
 
@@ -76,7 +74,7 @@ public class CastVoteActivity extends AppCompatActivity {
             try {
                 SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                 statement = connection.createStatement();
-                String query = "Select castVote from Voter where CNIC='" + sharedPreferences.getString("vCNIC","") + "'";
+                String query = "Select castVote from Candidate where CNIC='" + sharedPreferences.getString("cCNIC","") + "'";
                 ResultSet rs = statement.executeQuery(query);
                 if(rs.next())
                 {
@@ -89,9 +87,27 @@ public class CastVoteActivity extends AppCompatActivity {
         }
         if(castVote == 1)
         {
-            Toast.makeText(CastVoteActivity.this, "Vote has already been casted",Toast.LENGTH_SHORT).show();
-            Intent i1 = new Intent(CastVoteActivity.this, MenuActivity.class);
+            Toast.makeText(CandidateCastVote.this, "Vote has already been casted",Toast.LENGTH_SHORT).show();
+            Intent i1 = new Intent(CandidateCastVote.this, CandidateMenuActivity.class);
             startActivity(i1);
+        }
+        Candidate candidate=new Candidate();
+
+        if (connection != null) {
+            Statement statement = null;
+            try {
+                SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
+                statement = connection.createStatement();
+                String query = "Select * from Candidate where CNIC='" +  sharedPreferences.getString("cCNIC","")+"'";
+                ResultSet rs = statement.executeQuery(query);
+
+                while (rs.next()) {
+                    String votingArea=rs.getString("votingArea");
+                    candidate.setVotingArea(votingArea);
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
 
         if (connection != null) {
@@ -99,7 +115,8 @@ public class CastVoteActivity extends AppCompatActivity {
             try {
                 SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                 statement = connection.createStatement();
-                String query = "Select * from Candidate c join Voter v on c.votingArea = v.votingArea where v.CNIC='" + sharedPreferences.getString("vCNIC","") + "' and v.castVote != 1";
+                String query = "Select * from Candidate where votingArea='" + candidate.getVotingArea() + "' and castVote != 1";
+                Toast.makeText(CandidateCastVote.this, candidate.getVotingArea(),Toast.LENGTH_SHORT).show();
                 ResultSet rs = statement.executeQuery(query);
 
                 while (rs.next()) {
@@ -114,7 +131,7 @@ public class CastVoteActivity extends AppCompatActivity {
             }
         }
         listView=(ListView) findViewById(R.id.listview);
-        adapter=new CandidateListAdapter(CastVoteActivity.this,0,c);
+        adapter= new CandidateCastVote.CandidateListAdapter(CandidateCastVote.this,0,c);
         listView.setAdapter(adapter);
     }
 
@@ -122,7 +139,7 @@ public class CastVoteActivity extends AppCompatActivity {
 
         ArrayList<Candidate> objects;
 
-        public CandidateListAdapter(@NonNull Context context, int resource,  @NonNull ArrayList<Candidate> objects) {
+        public CandidateListAdapter(@NonNull Context context, int resource, @NonNull ArrayList<Candidate> objects) {
             super(context, resource, objects);
             this.objects=objects;
         }
@@ -167,14 +184,14 @@ public class CastVoteActivity extends AppCompatActivity {
                         try {
                             SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                             statement1 = connection.createStatement();
-                            ResultSet resultSet = statement1.executeQuery("Update Voter Set castVote=1 where CNIC='" + sharedPreferences.getString("vCNIC","") + "'");
+                            ResultSet resultSet = statement1.executeQuery("Update Candidate Set castVote=1 where CNIC='" + sharedPreferences.getString("cCNIC","") + "'");
 
                         }
                         catch (SQLException e) {
                             e.printStackTrace();
                         }
                         try {
-                            Intent i1 = new Intent(CastVoteActivity.this, MenuActivity.class);
+                            Intent i1 = new Intent(CandidateCastVote.this, CandidateMenuActivity.class);
                             startActivity(i1);
                         } finally {
 

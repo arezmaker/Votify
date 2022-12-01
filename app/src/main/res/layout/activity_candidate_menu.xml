@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
-    tools:context=".MainActivity">
+    tools:context=".CandidateMenuActivity">
 
     <Button
         android:id="@+id/castvote_button7"
@@ -14,7 +13,7 @@
         android:layout_marginTop="368dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:onClick="gotoCastVote"
+        android:onClick="gotoCastVote1"
         android:text="Cast Vote"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
@@ -25,6 +24,7 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="OnClick" />
 
+
     <Button
         android:id="@+id/updateinfo_button8"
         android:layout_width="128dp"
@@ -32,7 +32,7 @@
         android:layout_marginBottom="60dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:onClick="goToUpdateInfo"
+        android:onClick="goToUpdateInfo1"
         android:text="Update Info"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
@@ -51,7 +51,7 @@
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:text="Feedback"
-        android:onClick="goToFeedback"
+        android:onClick="goToFeedback1"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -69,7 +69,7 @@
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:text="Review Status"
-        android:onClick="goToReviewStatus"
+        android:onClick="goToReviewStatus1"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
@@ -86,7 +86,7 @@
         android:layout_marginTop="480dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
-        android:onClick="goToViewResult"
+        android:onClick="goToViewResult1"
         android:text="View Result"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
@@ -138,29 +138,11 @@
             android:layout_width="68dp"
             android:layout_height="55dp"
             android:background="@drawable/border"
-            android:onClick="popup"
+            android:onClick="popup1"
             app:srcCompat="@drawable/logomakr_0hkorn"
             tools:ignore="MissingConstraint,MissingConstraints"
             tools:layout_editor_absoluteX="3dp"
             tools:layout_editor_absoluteY="3dp" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-    <Button
-        android:id="@+id/result_button10"
-        android:layout_width="139dp"
-        android:layout_height="71dp"
-        android:layout_marginTop="480dp"
-        android:background="#1E4720"
-        android:backgroundTint="#265728"
-        android:onClick="goToViewResult"
-        android:text="View Result"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="#FFFFFF"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.463"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="OnClick" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

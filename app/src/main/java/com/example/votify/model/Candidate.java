@@ -3,7 +3,6 @@ package com.example.votify.model;
 import java.time.LocalDate;
 
 public class Candidate {
-
     private String votingArea;
     private LocalDate expiryDate;
     private LocalDate birthDate;
@@ -20,21 +19,20 @@ public class Candidate {
     public Candidate(){
 
     }
-
-    public Candidate(String name,String CNIC,String votingArea,LocalDate expiryDate,LocalDate birthDate,String party,int candidateNo,String typeofVote,int castVote, String symbol,int totalVote,String address) {
-        this.name = name;
-        this.CNIC=CNIC;
-        this.votingArea=votingArea;
-        this.expiryDate=expiryDate;
-        this.birthDate=birthDate;
-        this.party=party;
-        this.candidateNo=candidateNo;
-        this.typeofVote=typeofVote;
-        this.castVote=castVote;
-        this.symbol = symbol;
-        this.totalVote=totalVote;
-        this.Address=address;
-    }
+        public Candidate(String name,String CNIC,String votingArea,LocalDate expiryDate,LocalDate birthDate,String party,int candidateNo,String typeofVote,int castVote, String symbol,int totalVote,String address) {
+            this.name = name;
+            this.CNIC=CNIC;
+            this.votingArea=votingArea;
+            this.expiryDate=expiryDate;
+            this.birthDate=birthDate;
+            this.party=party;
+            this.candidateNo=candidateNo;
+            this.typeofVote=typeofVote;
+            this.castVote=castVote;
+            this.symbol = symbol;
+            this.totalVote=totalVote;
+            this.Address=address;
+        }
 
     public String getAddress() {
         return Address;

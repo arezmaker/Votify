@@ -17,6 +17,31 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/_200px_emblem_of_the_election_commission_of_pakistan_svg" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="38dp"
+        android:layout_height="295dp"
+        android:layout_marginTop="4dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="49dp"
+        android:layout_height="293dp"
+        android:layout_marginTop="4dp"
+        android:background="#1E4720"
+        android:backgroundTint="#265728"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/imageView2"
+        app:layout_constraintTop_toTopOf="parent">
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <ListView
         android:id="@+id/listParty"
@@ -24,16 +49,16 @@
         android:layout_height="331dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.691" />
+        app:layout_constraintVertical_bias="0.762" />
 
     <Button
         android:id="@+id/button"
         android:layout_width="130dp"
         android:layout_height="66dp"
-        android:layout_marginTop="672dp"
+        android:layout_marginTop="648dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:onClick="goToAddParty"
