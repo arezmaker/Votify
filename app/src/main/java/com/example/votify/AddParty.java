@@ -121,9 +121,19 @@ public class AddParty extends AppCompatActivity {
     public void goToAddPartyCandidates(View view){
         P_name=(EditText) findViewById(R.id.textView2);
         String Pname=String.valueOf(P_name.getText());
+        if (Pname.length()==0)
+        {
+            Toast.makeText(AddParty.this,"Invalid name",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         C_name=(EditText) findViewById(R.id.textView3);
         String Cname=String.valueOf(C_name.getText());
+        if (Cname.length()==0)
+        {
+            Toast.makeText(AddParty.this,"Invalid name",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         //ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         //selectedImageBitmap.compress(Bitmap.CompressFormat.PNG, 0, byteArrayOutputStream);

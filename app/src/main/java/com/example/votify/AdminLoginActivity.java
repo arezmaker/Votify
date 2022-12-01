@@ -55,11 +55,25 @@ public class AdminLoginActivity extends AppCompatActivity {
     public void login(View view){
         EditText a_username=findViewById(R.id.a_editTextTextPersonName2);
         char[] username=new char[30];
-        username=String.valueOf(a_username.getText()).toCharArray();
+        if (String.valueOf(a_username.getText()).length()==0)
+        {
+            Toast.makeText(AdminLoginActivity.this,"Invalid username",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            username = String.valueOf(a_username.getText()).toCharArray();
+        }
 
         EditText a_pass=findViewById(R.id.a_editTextTextPassword2);
         char[] pass=new char[15];
-        pass=String.valueOf(a_pass.getText()).toCharArray();
+        if (String.valueOf(a_pass.getText()).length()==0)
+        {
+            Toast.makeText(AdminLoginActivity.this,"Invalid password",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            pass = String.valueOf(a_pass.getText()).toCharArray();
+        }
 
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //

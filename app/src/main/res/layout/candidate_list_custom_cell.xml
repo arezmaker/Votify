@@ -19,11 +19,11 @@
 
         <EditText
             android:id="@+id/cl_name"
-            android:layout_width="125dp"
+            android:layout_width="135dp"
             android:layout_height="50dp"
             android:background="@drawable/border"
             android:hint="Name"
-            android:textAlignment="center"
+            android:textAlignment="textStart"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.006"
@@ -47,7 +47,7 @@
 
         <EditText
             android:id="@+id/cl_editTextNumberSigned5"
-            android:layout_width="175dp"
+            android:layout_width="165dp"
             android:layout_height="50dp"
             android:background="@drawable/border"
             android:ems="10"
@@ -58,10 +58,9 @@
             android:shadowDy="1.3"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.583"
+            app:layout_constraintHorizontal_bias="0.6"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.523" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

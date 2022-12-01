@@ -107,7 +107,7 @@
 
         <EditText
             android:id="@+id/v_editTextNumberSigned"
-            android:layout_width="209dp"
+            android:layout_width="220dp"
             android:layout_height="74dp"
             android:layout_marginTop="16dp"
             android:background="@drawable/border"
@@ -124,12 +124,12 @@
 
         <EditText
             android:id="@+id/v_editTextDate"
-            android:layout_width="211dp"
+            android:layout_width="220dp"
             android:layout_height="67dp"
             android:layout_marginTop="116dp"
             android:background="@drawable/border"
             android:ems="10"
-            android:hint="Expiry Date"
+            android:hint="Expiry Date (yyyy-MM-dd)"
             android:inputType="date"
             android:shadowColor="#000000"
             android:shadowDx="1.5"

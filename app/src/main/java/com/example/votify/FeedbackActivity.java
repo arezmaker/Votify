@@ -57,10 +57,20 @@ public class FeedbackActivity extends AppCompatActivity {
     public void goToMenuActivityFromFeedback(View view){
         subject=findViewById(R.id.feedback_editTextSubject);
         String sub=String.valueOf(subject.getText());
+        if (sub.length()==0)
+        {
+            Toast.makeText(FeedbackActivity.this,"Enter Subject",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Toast.makeText(FeedbackActivity.this,sub, LENGTH_SHORT).show();
 
         message=findViewById(R.id.feedback_editTextTextMultiLine);
         String msg=String.valueOf(message.getText());
+        if (msg.length()==0)
+        {
+            Toast.makeText(FeedbackActivity.this,"Enter Message",Toast.LENGTH_SHORT).show();
+            return;
+        }
         Toast.makeText(FeedbackActivity.this,msg, LENGTH_SHORT).show();
 
         if (connection!=null){

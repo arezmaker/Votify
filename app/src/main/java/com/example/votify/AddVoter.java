@@ -30,6 +30,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
@@ -69,27 +70,86 @@ public class AddVoter extends AppCompatActivity {
     public void AddNewVoter(View view) {
         EditText ed_name=findViewById(R.id.vs_editTextTextPersonName3);
         String name=String.valueOf(ed_name.getText());
+        if (name.length()==0)
+        {
+            Toast.makeText(AddVoter.this,"Invalid name",Toast.LENGTH_SHORT).show();
+            return;
+        }
         //Toast.makeText(VoterSignUpActivity.this,name,Toast.LENGTH_SHORT).show();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
+        String currdate=formatter.format(LocalDate.now());
+        LocalDate present=LocalDate.parse(currdate,formatter);
+
         EditText ed_bdate=findViewById(R.id.vs_editTextDate3);
-        LocalDate bdate=LocalDate.parse(String.valueOf(ed_bdate.getText()),formatter);
+        LocalDate bdate;
+        try {
+            bdate = LocalDate.parse(String.valueOf(ed_bdate.getText()), formatter);
+        } catch (Exception e) {
+            Toast.makeText(AddVoter.this,"Invalid Date Format",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        Period period = Period.between(bdate, present);
+        int years=period.getYears();
+        //Toast.makeText(VoterSignUpActivity.this,String.valueOf(years),Toast.LENGTH_SHORT).show();
+
+        if (years < 18)
+        {
+            Toast.makeText(AddVoter.this,"Age less than 18",Toast.LENGTH_SHORT).show();
+            return;
+        }
         //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_bdate.getText()));
         //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse("24/07/2000");
 
         EditText ed_edate=findViewById(R.id.vs_editTextDate2);
-        LocalDate edate=LocalDate.parse(String.valueOf(ed_edate.getText()),formatter);
+        LocalDate edate;
+        try {
+            edate=LocalDate.parse(String.valueOf(ed_edate.getText()),formatter);
+        } catch (Exception e) {
+            Toast.makeText(AddVoter.this,"Invalid Date Format",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         //Date edate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_edate.getText()));
 
         EditText ed_cnic=findViewById(R.id.vs_editTextNumberSigned5);
         String cnic=String.valueOf(ed_cnic.getText());
+        if(cnic.length()==13)
+        {
+            if (Long.parseLong(cnic)>0000000000000)
+            {
+
+            }
+            else
+            {
+                Toast.makeText(AddVoter.this,"Invalid CNIC",Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        else
+        {
+            Toast.makeText(AddVoter.this,"Invalid CNIC",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         EditText add=findViewById(R.id.advt_editTextTextPostalAddress);
         String address=String.valueOf(add.getText());
+        if(address.length()==0)
+        {
+            Toast.makeText(AddVoter.this,"Invalid address",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        LatLng coord=getLocationFromAddress(this,address);
+        LatLng coord;
+        try {
+            coord=getLocationFromAddress(this,address);
+        } catch (Exception e) {
+            Toast.makeText(AddVoter.this,"Invalid Address",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         String Stion="";
         ArrayList<VotingArea> va=new ArrayList<>();

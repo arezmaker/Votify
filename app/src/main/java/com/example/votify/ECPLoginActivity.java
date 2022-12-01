@@ -55,11 +55,25 @@ public class ECPLoginActivity extends AppCompatActivity {
     public void login(View view){
         EditText e_username=findViewById(R.id.e_editTextTextPersonName);
         char[] username=new char[30];
-        username=String.valueOf(e_username.getText()).toCharArray();
+        if (String.valueOf(e_username.getText()).length()==0)
+        {
+            Toast.makeText(ECPLoginActivity.this,"Invalid username",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            username = String.valueOf(e_username.getText()).toCharArray();
+        }
 
         EditText e_pass=findViewById(R.id.e_editTextTextPassword);
         char[] pass=new char[15];
-        pass=String.valueOf(e_pass.getText()).toCharArray();
+        if (String.valueOf(e_pass.getText()).length()==0)
+        {
+            Toast.makeText(ECPLoginActivity.this,"Invalid password",Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            pass = String.valueOf(e_pass.getText()).toCharArray();
+        }
 
 //        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 //

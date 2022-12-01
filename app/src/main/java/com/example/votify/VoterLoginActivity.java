@@ -58,13 +58,35 @@ public class VoterLoginActivity extends AppCompatActivity {
     public void goToMenuActivity(View view){
         EditText v_cnic=findViewById(R.id.v_editTextNumberSigned);
         char[] cnic=new char[15];
-        cnic=String.valueOf(v_cnic.getText()).toCharArray();
+        if(String.valueOf(v_cnic.getText()).length()==13)
+        {
+            if (Long.parseLong(String.valueOf(v_cnic.getText()))>0000000000000)
+            {
+                cnic=String.valueOf(v_cnic.getText()).toCharArray();
+            }
+            else
+            {
+                Toast.makeText(VoterLoginActivity.this,"Invalid CNIC",Toast.LENGTH_SHORT).show();
+                return;
+            }
+        }
+        else
+        {
+            Toast.makeText(VoterLoginActivity.this,"Invalid CNIC",Toast.LENGTH_SHORT).show();
+            return;
+        }
+
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
 
         EditText v_date=findViewById(R.id.v_editTextDate);
-        LocalDate edate=LocalDate.parse(String.valueOf(v_date.getText()),formatter);
-
+        LocalDate edate;
+        try {
+            edate = LocalDate.parse(String.valueOf(v_date.getText()), formatter);
+        } catch (Exception e) {
+            Toast.makeText(VoterLoginActivity.this,"Invalid Date Format",Toast.LENGTH_SHORT).show();
+            return;
+        }
         //Toast.makeText(VoterLoginActivity.this,String.valueOf(edate),Toast.LENGTH_SHORT).show();
 
 

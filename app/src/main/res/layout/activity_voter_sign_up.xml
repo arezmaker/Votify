@@ -78,7 +78,7 @@
             android:layout_marginTop="88dp"
             android:background="@drawable/border"
             android:ems="10"
-            android:hint="CNIC"
+            android:hint="CNIC "
             android:inputType="numberSigned"
             android:shadowColor="#000000"
             android:shadowDx="1.5"
@@ -95,7 +95,7 @@
             android:layout_marginTop="160dp"
             android:background="@drawable/border"
             android:ems="10"
-            android:hint="Expiry Date"
+            android:hint="Expiry Date (dd/MM/yyyy)"
             android:inputType="date"
             android:shadowColor="#000000"
             android:shadowDx="1.5"
@@ -112,7 +112,7 @@
             android:layout_marginTop="236dp"
             android:background="@drawable/border"
             android:ems="10"
-            android:hint="Birth Date"
+            android:hint="Birth Date (dd/MM/yyyy)"
             android:inputType="date"
             android:shadowColor="#000000"
             android:shadowDx="1.5"
@@ -142,7 +142,6 @@
         android:id="@+id/button"
         android:layout_width="125dp"
         android:layout_height="46dp"
-        android:layout_marginTop="676dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
         android:onClick="goToVoterLoginActivity"
@@ -150,8 +149,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.991" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

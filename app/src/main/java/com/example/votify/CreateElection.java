@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 
 @RequiresApi(api = Build.VERSION_CODES.O)
@@ -87,6 +88,24 @@ public class CreateElection extends AppCompatActivity {
     }
 
     public void SubmitElection(View v){
+
+        String currdate=formatter.format(LocalDate.now());
+        LocalDate present=LocalDate.parse(currdate,formatter);
+
+        Period period = Period.between(present,dte[0]);
+        int years=period.getYears();
+
+        if (years <= 0)
+        {
+            if(period.getMonths()<=0)
+            {
+                if(period.getDays()<0)
+                {
+                    Toast.makeText(CreateElection.this,"Invalid Date Selected",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+            }
+        }
 
         if (connection!=null){
             Statement statement = null;

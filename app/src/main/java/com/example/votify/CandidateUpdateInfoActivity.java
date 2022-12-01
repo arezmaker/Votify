@@ -106,12 +106,24 @@ public class CandidateUpdateInfoActivity extends AppCompatActivity {
         }
     }
 
+
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void updateInfo(View view)
     {
         String NewAdd=String.valueOf(nA.getText());
+        if (NewAdd.length()==0)
+        {
+            Toast.makeText(CandidateUpdateInfoActivity.this,"Enter New Address",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
-        LatLng coord=getLocationFromAddress(this,NewAdd);
+        LatLng coord;
+        try {
+            coord=getLocationFromAddress(this,NewAdd);
+        } catch (Exception e) {
+            Toast.makeText(CandidateUpdateInfoActivity.this,"Invalid Address",Toast.LENGTH_SHORT).show();
+            return;
+        }
 
         String Stion="";
         ArrayList<VotingArea> va=new ArrayList<>();
