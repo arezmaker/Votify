@@ -5,6 +5,7 @@ import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -51,6 +52,8 @@ public class ViewResult extends AppCompatActivity {
     // array list for storing entries.
     ArrayList barEntriesArrayList;
 
+    TextView txt;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -68,6 +71,27 @@ public class ViewResult extends AppCompatActivity {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+
+        txt=findViewById(R.id.textView9);
+        String res="";
+
+        if (connection!=null)
+        {
+            Statement statement=null;
+            try {
+                statement = connection.createStatement();
+                ResultSet resultSet = statement.executeQuery("Select * from Election where id=(select max(id) from Election)");
+                if (resultSet.next())
+                {
+                    res=res+resultSet.getString("Result");
+                }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+
+        txt.setText(res);
 
         barChart = findViewById(R.id.idBarChart);
 

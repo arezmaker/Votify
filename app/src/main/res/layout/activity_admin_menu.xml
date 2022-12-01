@@ -31,6 +31,7 @@
         android:layout_marginTop="368dp"
         android:background="#1E4720"
         android:backgroundTint="#265728"
+        android:onClick="generateResult"
         android:text="Generate Report"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"

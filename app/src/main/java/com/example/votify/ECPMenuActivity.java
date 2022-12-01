@@ -23,4 +23,9 @@ public class ECPMenuActivity extends AppCompatActivity {
         Intent i=new Intent(ECPMenuActivity.this,VoterList.class);
         startActivity(i);
     }
+
+    public void goToCreateElection(View view){
+        Intent i=new Intent(ECPMenuActivity.this,CreateElection.class);
+        startActivity(i);
+    }
 }
