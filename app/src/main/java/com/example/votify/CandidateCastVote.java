@@ -5,13 +5,17 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -115,14 +119,14 @@ public class CandidateCastVote extends AppCompatActivity {
             try {
                 SharedPreferences sharedPreferences=getSharedPreferences("CNIC",MODE_PRIVATE);
                 statement = connection.createStatement();
-                String query = "Select * from Candidate where votingArea='" + candidate.getVotingArea() + "' and castVote != 1";
+                String query = "Select * from Candidate c join Party p on c.party=p.name where votingArea='" + candidate.getVotingArea() + "' and castVote != 1";
                 Toast.makeText(CandidateCastVote.this, candidate.getVotingArea(),Toast.LENGTH_SHORT).show();
                 ResultSet rs = statement.executeQuery(query);
 
                 while (rs.next()) {
                     String party = rs.getString("party");
                     String name = rs.getString("name");
-                    String sym = rs.getString("symbol");
+                    String sym = rs.getString(18);
                     String CNIC=rs.getString("CNIC");
                     c.add((new Candidate(name, CNIC, "", null, null, party, 0, "", 0, sym,0,"")));
                 }
@@ -159,12 +163,12 @@ public class CandidateCastVote extends AppCompatActivity {
             TextView msg = convertView.findViewById(R.id.chairmanName);
             msg.setText(f.getName());
 
-//            ImageView imgsymbol = convertView.findViewById(R.id.sym);
-//            String sym=f.getSymbol();
-//            byte[] decodeString = Base64.decode(sym, Base64.DEFAULT);
-//            Bitmap decodebitmap = BitmapFactory.decodeByteArray(decodeString,
-//                    0, decodeString.length);
-//            imgsymbol.setImageBitmap(decodebitmap);
+            ImageView imgsymbol = convertView.findViewById(R.id.sym);
+            String sym=f.getSymbol();
+            byte[] decodeString = Base64.decode(sym, Base64.DEFAULT);
+            Bitmap decodebitmap = BitmapFactory.decodeByteArray(decodeString,
+                    0, decodeString.length);
+            imgsymbol.setImageBitmap(decodebitmap);
 
             ImageButton rem= convertView.findViewById(R.id.imageButton2);
             rem.setOnClickListener(new View.OnClickListener() {

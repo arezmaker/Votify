@@ -1,10 +1,11 @@
 package com.example.votify;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import android.Manifest;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Address;
+import android.location.Geocoder;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -17,13 +18,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 
 import com.example.votify.model.Candidate;
+import com.example.votify.model.VotingArea;
+import com.google.android.gms.maps.model.LatLng;
 
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 
 public class CandidateSignUpActivity extends AppCompatActivity {
 
@@ -58,25 +65,69 @@ public class CandidateSignUpActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void goToCandidateLoginActivity(View view) {
-        EditText ed_name=findViewById(R.id.cs_editTextTextPersonName4);
+        EditText ed_party=findViewById(R.id.cs_Party);
+        String party=String.valueOf(ed_party.getText());
+
+        EditText ed_name=findViewById(R.id.cs_editTextTextPersonName3);
         String name=String.valueOf(ed_name.getText());
         //Toast.makeText(VoterSignUpActivity.this,name,Toast.LENGTH_SHORT).show();
 
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 
-        EditText ed_bdate=findViewById(R.id.cs_editTextDate5);
+        EditText ed_bdate=findViewById(R.id.cs_editTextDate3);
         LocalDate bdate=LocalDate.parse(String.valueOf(ed_bdate.getText()),formatter);
         //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_bdate.getText()));
         //Date bdate=new SimpleDateFormat("dd/MM/yyyy").parse("24/07/2000");
 
-        EditText ed_edate=findViewById(R.id.cs_editTextDate4);
+        EditText ed_edate=findViewById(R.id.cs_editTextDate2);
         LocalDate edate=LocalDate.parse(String.valueOf(ed_edate.getText()),formatter);
 
         //Date edate=new SimpleDateFormat("dd/MM/yyyy").parse(String.valueOf(ed_edate.getText()));
 
-        EditText ed_cnic=findViewById(R.id.cs_editTextNumberSigned3);
-        char[] cnic=new char[15];
-        cnic=String.valueOf(ed_cnic.getText()).toCharArray();
+        EditText ed_cnic=findViewById(R.id.cs_editTextNumberSigned5);
+        String cnic=String.valueOf(ed_cnic.getText());
+
+        EditText add=findViewById(R.id.adct_editTextTextPostalAddress);
+        String address=String.valueOf(add.getText());
+
+        LatLng coord=getLocationFromAddress(this,address);
+
+        String Stion="";
+        ArrayList<VotingArea> va=new ArrayList<>();
+
+        if (connection!=null){
+            Statement statement = null;
+            try {
+                statement = connection.createStatement();
+                String query = "Select * from VotingAreas" ;
+                ResultSet resultSet = statement.executeQuery(query);
+                while (resultSet.next())
+                {
+                    float lat=resultSet.getFloat("Lat");
+                    float lon=resultSet.getFloat("Long");
+                    String station=resultSet.getString("Station");
+                    va.add(new VotingArea(lat,lon,station));
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        else {
+            Toast.makeText(CandidateSignUpActivity.this,"error", Toast.LENGTH_SHORT).show();
+        }
+
+        double minDistance=Float.MAX_VALUE;
+        for (int i=0;i<va.size();i++)
+        {
+            double dis=distance(coord.latitude,coord.longitude,va.get(i).getLat(),va.get(i).getLon());
+            if (dis<minDistance)
+            {
+                minDistance=dis;
+                Stion=va.get(i).getStation();
+            }
+        }
+
+        Toast.makeText(CandidateSignUpActivity.this,Stion, Toast.LENGTH_SHORT).show();
 
         //Button b_register=findViewById(R.id.vs_button17);
 
@@ -84,23 +135,69 @@ public class CandidateSignUpActivity extends AppCompatActivity {
         candidate.setName(name);
         candidate.setBirthDate(bdate);
         candidate.setExpiryDate(edate);
-        candidate.setCNIC(String.valueOf(cnic));
+        candidate.setCNIC(cnic);
+        candidate.setAddress(address);
+        candidate.setVotingArea(Stion);
+        candidate.setParty(party);
+
         if (connection!=null){
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Candidate(name,cnic,birthDate,expiryDate) VALUES ('" + candidate.getName()  + "','"+ String.valueOf(candidate.getCNIC())+ "','" + candidate.getBirthDate()  + "','" + candidate.getExpiryDate()  + "') " ;
+                String query = "INSERT INTO Candidate(name,CNIC,expiryDate,birthDate,Address,votingArea,party,totalVote,typeofVote,castVote,Status) VALUES ('" + candidate.getName()  + "','"+ candidate.getCNIC()+ "','" + candidate.getExpiryDate()  + "','" + candidate.getBirthDate()  + "','"+ candidate.getAddress()+ "','"+candidate.getVotingArea()+"','"+candidate.getParty()+"',0,'national',0,'Active') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();
             }
         }
         else {
-            Toast.makeText(CandidateSignUpActivity.this,"error", LENGTH_SHORT).show();
+            Toast.makeText(CandidateSignUpActivity.this,"error", Toast.LENGTH_SHORT).show();
         }
 
 
-        Intent i=new Intent(CandidateSignUpActivity.this,CandidateLoginActivity.class);
+        Intent i=new Intent(CandidateSignUpActivity.this, CandidateLoginActivity.class);
         startActivity(i);
+    }
+
+    public LatLng getLocationFromAddress(Context context, String strAddress) {
+
+        Geocoder coder = new Geocoder(context);
+        List<Address> address;
+        LatLng p1 = null;
+
+        try {
+            // May throw an IOException
+            address = coder.getFromLocationName(strAddress, 5);
+            if (address == null) {
+                return null;
+            }
+
+            Address location = address.get(0);
+            p1 = new LatLng(location.getLatitude(), location.getLongitude() );
+
+        } catch (IOException ex) {
+
+            ex.printStackTrace();
+        }
+
+        return p1;
+    }
+
+    private double distance(double lat1, double lon1, double lat2, double lon2) {
+        double theta = lon1 - lon2;
+        double dist = Math.sin(deg2rad(lat1)) * Math.sin(deg2rad(lat2)) + Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) * Math.cos(deg2rad(theta));
+        dist = Math.acos(dist);
+        dist = rad2deg(dist);
+        dist = dist * 60 * 1.1515;
+        dist = dist * 1.609344;
+        return (dist);
+    }
+
+    private double deg2rad(double deg) {
+        return (deg * Math.PI / 180.0);
+    }
+
+    private double rad2deg(double rad) {
+        return (rad * 180.0 / Math.PI);
     }
 }

@@ -142,7 +142,7 @@ public class AddVoter extends AppCompatActivity {
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Voter(name,CNIC,expiryDate,birthDate,Address,votingArea) VALUES ('" + voter.getName()  + "','"+ voter.getCnic()+ "','" + voter.getExpire_date()  + "','" + voter.getBirth_date()  + "','"+ voter.getAddress()+ "','"+voter.getVotingArea()+"') " ;
+                String query = "INSERT INTO Voter(name,CNIC,expiryDate,birthDate,Address,votingArea,typeofVote,castVote,Status) VALUES ('" + voter.getName()  + "','"+ voter.getCnic()+ "','" + voter.getExpire_date()  + "','" + voter.getBirth_date()  + "','"+ voter.getAddress()+ "','"+voter.getVotingArea()+"','national',0,'Active') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();

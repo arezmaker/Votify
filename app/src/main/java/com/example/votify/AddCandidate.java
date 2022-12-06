@@ -144,7 +144,7 @@ public class AddCandidate extends AppCompatActivity {
             Statement statement = null;
             try {
                 statement = connection.createStatement();
-                String query = "INSERT INTO Candidate(name,CNIC,expiryDate,birthDate,Address,votingArea,party) VALUES ('" + candidate.getName()  + "','"+ candidate.getCNIC()+ "','" + candidate.getExpiryDate()  + "','" + candidate.getBirthDate()  + "','"+ candidate.getAddress()+ "','"+candidate.getVotingArea()+"','"+candidate.getParty()+"') " ;
+                String query = "INSERT INTO Candidate(name,CNIC,expiryDate,birthDate,Address,votingArea,party,totalVote,typeofVote,castVote,Status) VALUES ('" + candidate.getName()  + "','"+ candidate.getCNIC()+ "','" + candidate.getExpiryDate()  + "','" + candidate.getBirthDate()  + "','"+ candidate.getAddress()+ "','"+candidate.getVotingArea()+"','"+candidate.getParty()+"',0,'national',0,'Active') " ;
                 statement.executeQuery(query);
             } catch (SQLException e) {
                 e.printStackTrace();
